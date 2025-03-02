@@ -1,6 +1,8 @@
-# Personal Website
+# Passwerob.github.io
 
 A clean, modern, and responsive personal website showcasing programming skills, study notes, and projects.
+
+This is Passwerob's own website. It contains my LeetCode experience about Python and C/C++, as well as notebooks about deep learning.
 
 ## Overview
 
@@ -80,6 +82,6 @@ This project is open source and available under the [MIT License](LICENSE).
 
 Feel free to connect with me on:
 
-- GitHub: [Your GitHub Username](https://github.com/)
+- GitHub: [Passwerob](https://github.com/Passwerob)
 - LinkedIn: [Your LinkedIn Profile](https://linkedin.com/)
 - Twitter: [Your Twitter Handle](https://twitter.com/)
