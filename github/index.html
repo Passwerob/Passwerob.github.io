@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Projects | My Personal Website</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .project-card {
+            background-color: var(--background-color);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+        
+        .project-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .project-description {
+            color: var(--light-text);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .tech-tag {
+            background-color: var(--light-background);
+            color: var(--primary-color);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .project-links a {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .project-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .project-links i {
+            font-size: 1.1rem;
+        }
+        
+        .featured-project {
+            grid-column: 1 / -1;
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            background-color: var(--background-color);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .featured-project:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .featured-project .project-image {
+            flex: 1;
+            height: auto;
+        }
+        
+        .featured-project .project-content {
+            flex: 1;
+            padding: 40px;
+        }
+        
+        .featured-badge {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .featured-project .project-title {
+            font-size: 1.8rem;
+        }
+        
+        @media (max-width: 768px) {
+            .featured-project {
+                flex-direction: column;
+            }
+            
+            .featured-project .project-image {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">My Portfolio</h1>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../leetcode/index.html">LeetCode Notes</a></li>
+                    <li><a href="../deep-learning/index.html">Deep Learning</a></li>
+                    <li><a href="index.html" class="active">GitHub Projects</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>GitHub Projects</h2>
+                <p>A showcase of my open-source contributions and personal projects</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            
+            <div class="projects-grid">
+                <div class="featured-project">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/800x600/4a6fa5/ffffff?text=Deep+Learning+Project" alt="Deep Learning Project">
+                    </div>
+                    <div class="project-content">
+                        <span class="featured-badge">Featured Project</span>
+                        <h3 class="project-title">Neural Network Framework</h3>
+                        <div class="project-description">
+                            <p>A lightweight neural network framework built from scratch in Python. Implements various layer types, activation functions, and optimization algorithms with a clean, intuitive API.</p>
+                            <p>The framework supports both feed-forward and convolutional neural networks, with automatic differentiation for backpropagation.</p>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">NumPy</span>
+                            <span class="tech-tag">Deep Learning</span>
+                            <span class="tech-tag">Neural Networks</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/600x400/6b8cae/ffffff?text=Algorithm+Visualizer" alt="Algorithm Visualizer">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Algorithm Visualizer</h3>
+                        <div class="project-description">
+                            <p>An interactive web application that visualizes various algorithms in action, including sorting, pathfinding, and graph algorithms.</p>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">Algorithms</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/600x400/f8b400/ffffff?text=Data+Analysis+Tool" alt="Data Analysis Tool">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Data Analysis Tool</h3>
+                        <div class="project-description">
+                            <p>A Python-based tool for data analysis and visualization, with support for various data formats and statistical methods.</p>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Matplotlib</span>
+                            <span class="tech-tag">Data Science</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                            <a href="#" target="_blank"><i class="fas fa-book"></i> Documentation</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/600x400/4a6fa5/ffffff?text=C++%20Game%20Engine" alt="C++ Game Engine">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">C++ Game Engine</h3>
+                        <div class="project-description">
+                            <p>A lightweight 2D game engine built in C++ with OpenGL, featuring a component-based architecture, physics system, and asset management.</p>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">C++</span>
+                            <span class="tech-tag">OpenGL</span>
+                            <span class="tech-tag">Game Development</span>
+                            <span class="tech-tag">Physics</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                            <a href="#" target="_blank"><i class="fas fa-book"></i> Documentation</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/600x400/6b8cae/ffffff?text=Web%20Scraper" alt="Web Scraper">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Web Scraper</h3>
+                        <div class="project-description">
+                            <p>A versatile web scraping tool that can extract structured data from websites, with support for JavaScript rendering and data export.</p>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">BeautifulSoup</span>
+                            <span class="tech-tag">Selenium</span>
+                            <span class="tech-tag">Web Scraping</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/600x400/f8b400/ffffff?text=Personal%20Website" alt="Personal Website">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Personal Website</h3>
+                        <div class="project-description">
+                            <p>A responsive personal website built with HTML, CSS, and JavaScript, featuring a clean design and intuitive navigation.</p>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Responsive Design</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                            <a href="../index.html"><i class="fas fa-external-link-alt"></i> Live Site</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="github-cta">
+                <h3>More Projects on GitHub</h3>
+                <p>Check out my GitHub profile for more projects and contributions.</p>
+                <a href="https://github.com/" target="_blank" class="btn"><i class="fab fa-github"></i> Visit My GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../leetcode/index.html">LeetCode Notes</a></li>
+                        <li><a href="../deep-learning/index.html">Deep Learning</a></li>
+                        <li><a href="index.html">GitHub Projects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 My Personal Website. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html> 

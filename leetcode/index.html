@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeetCode Notes | My Personal Website</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .language-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        
+        .language-tab {
+            padding: 12px 24px;
+            background-color: var(--light-background);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .language-tab:first-child {
+            border-radius: 4px 0 0 4px;
+        }
+        
+        .language-tab:last-child {
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .language-tab.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .problem-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .problem-card {
+            background-color: var(--background-color);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 20px;
+            transition: var(--transition);
+        }
+        
+        .problem-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .problem-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .problem-card .difficulty {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .problem-card .easy {
+            background-color: #5cb85c;
+            color: white;
+        }
+        
+        .problem-card .medium {
+            background-color: #f0ad4e;
+            color: white;
+        }
+        
+        .problem-card .hard {
+            background-color: #d9534f;
+            color: white;
+        }
+        
+        .problem-card .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 10px;
+        }
+        
+        .problem-card .tag {
+            background-color: var(--light-background);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">My Portfolio</h1>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="index.html" class="active">LeetCode Notes</a></li>
+                    <li><a href="../deep-learning/index.html">Deep Learning</a></li>
+                    <li><a href="../github/index.html">GitHub Projects</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>LeetCode Problem Solutions</h2>
+                <p>My solutions and explanations for various LeetCode problems in C and Python</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="leetcode-content">
+        <div class="container">
+            <h2 class="section-title">Problem Solutions</h2>
+            
+            <div class="language-tabs">
+                <button class="language-tab active" data-tab="c">C Solutions</button>
+                <button class="language-tab" data-tab="python">Python Solutions</button>
+            </div>
+            
+            <div class="tab-content active" id="c-content">
+                <div class="problem-list">
+                    <!-- Example C problems - replace with actual content -->
+                    <div class="problem-card">
+                        <h3>Two Sum</h3>
+                        <span class="difficulty easy">Easy</span>
+                        <p>Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.</p>
+                        <a href="c/two-sum.html" class="btn-small">View Solution</a>
+                        <div class="tags">
+                            <span class="tag">Array</span>
+                            <span class="tag">Hash Table</span>
+                        </div>
+                    </div>
+                    
+                    <div class="problem-card">
+                        <h3>Add Two Numbers</h3>
+                        <span class="difficulty medium">Medium</span>
+                        <p>You are given two non-empty linked lists representing two non-negative integers.</p>
+                        <a href="c/add-two-numbers.html" class="btn-small">View Solution</a>
+                        <div class="tags">
+                            <span class="tag">Linked List</span>
+                            <span class="tag">Math</span>
+                        </div>
+                    </div>
+                    
+                    <div class="problem-card">
+                        <h3>Merge K Sorted Lists</h3>
+                        <span class="difficulty hard">Hard</span>
+                        <p>You are given an array of k linked-lists lists, each linked-list is sorted in ascending order.</p>
+                        <a href="c/merge-k-sorted-lists.html" class="btn-small">View Solution</a>
+                        <div class="tags">
+                            <span class="tag">Linked List</span>
+                            <span class="tag">Divide and Conquer</span>
+                            <span class="tag">Heap</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Add more problem cards as needed -->
+                </div>
+            </div>
+            
+            <div class="tab-content" id="python-content">
+                <div class="problem-list">
+                    <!-- Example Python problems - replace with actual content -->
+                    <div class="problem-card">
+                        <h3>Two Sum</h3>
+                        <span class="difficulty easy">Easy</span>
+                        <p>Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.</p>
+                        <a href="python/two-sum.html" class="btn-small">View Solution</a>
+                        <div class="tags">
+                            <span class="tag">Array</span>
+                            <span class="tag">Hash Table</span>
+                        </div>
+                    </div>
+                    
+                    <div class="problem-card">
+                        <h3>Longest Substring Without Repeating Characters</h3>
+                        <span class="difficulty medium">Medium</span>
+                        <p>Given a string s, find the length of the longest substring without repeating characters.</p>
+                        <a href="python/longest-substring.html" class="btn-small">View Solution</a>
+                        <div class="tags">
+                            <span class="tag">String</span>
+                            <span class="tag">Sliding Window</span>
+                            <span class="tag">Hash Table</span>
+                        </div>
+                    </div>
+                    
+                    <div class="problem-card">
+                        <h3>Regular Expression Matching</h3>
+                        <span class="difficulty hard">Hard</span>
+                        <p>Given an input string s and a pattern p, implement regular expression matching with support for '.' and '*'.</p>
+                        <a href="python/regex-matching.html" class="btn-small">View Solution</a>
+                        <div class="tags">
+                            <span class="tag">String</span>
+                            <span class="tag">Dynamic Programming</span>
+                            <span class="tag">Recursion</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Add more problem cards as needed -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="index.html">LeetCode Notes</a></li>
+                        <li><a href="../deep-learning/index.html">Deep Learning</a></li>
+                        <li><a href="../github/index.html">GitHub Projects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 My Personal Website. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Tab switching functionality
+        const tabs = document.querySelectorAll('.language-tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and contents
+                tabs.forEach(t => t.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding content
+                tab.classList.add('active');
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(`${tabId}-content`).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html> 

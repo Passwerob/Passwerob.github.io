@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Learning Notes | My Personal Website</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .topic-card {
+            background-color: var(--background-color);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .topic-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .topic-card-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .topic-card-header i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .topic-card-header h3 {
+            margin: 0;
+            font-size: 1.4rem;
+        }
+        
+        .topic-card-body {
+            padding: 20px;
+        }
+        
+        .topic-card-body p {
+            margin-bottom: 20px;
+            color: var(--light-text);
+        }
+        
+        .topic-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .topic-list li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .topic-list li::before {
+            content: '•';
+            color: var(--accent-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .note-container {
+            background-color: var(--light-background);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .note-container h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        
+        .note-container p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+        
+        .note-container ul, .note-container ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        .note-container li {
+            margin-bottom: 10px;
+        }
+        
+        .note-container code {
+            background-color: #f1f1f1;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        
+        .note-container pre {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+            font-family: monospace;
+        }
+        
+        .math-formula {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-left: 3px solid var(--primary-color);
+            margin: 20px 0;
+            font-family: 'Times New Roman', Times, serif;
+            overflow-x: auto;
+        }
+        
+        .resource-links {
+            margin-top: 40px;
+        }
+        
+        .resource-links h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .resource-links ul {
+            list-style: none;
+        }
+        
+        .resource-links li {
+            margin-bottom: 10px;
+        }
+        
+        .resource-links a {
+            display: inline-block;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        .resource-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .resource-links a:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">My Portfolio</h1>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../leetcode/index.html">LeetCode Notes</a></li>
+                    <li><a href="index.html" class="active">Deep Learning</a></li>
+                    <li><a href="../github/index.html">GitHub Projects</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Deep Learning Study Notes</h2>
+                <p>My personal notes and insights on deep learning concepts, architectures, and implementations</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="deep-learning-topics">
+        <div class="container">
+            <h2 class="section-title">Key Topics</h2>
+            
+            <div class="topic-grid">
+                <div class="topic-card">
+                    <div class="topic-card-header">
+                        <i class="fas fa-brain"></i>
+                        <h3>Neural Networks Fundamentals</h3>
+                    </div>
+                    <div class="topic-card-body">
+                        <p>Core concepts and building blocks of neural networks.</p>
+                        <ul class="topic-list">
+                            <li>Perceptrons & Neurons</li>
+                            <li>Activation Functions</li>
+                            <li>Backpropagation</li>
+                            <li>Gradient Descent</li>
+                        </ul>
+                        <a href="#neural-networks" class="btn-small">View Notes</a>
+                    </div>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-card-header">
+                        <i class="fas fa-image"></i>
+                        <h3>Convolutional Neural Networks</h3>
+                    </div>
+                    <div class="topic-card-body">
+                        <p>Specialized neural networks for processing visual data.</p>
+                        <ul class="topic-list">
+                            <li>Convolutional Layers</li>
+                            <li>Pooling Operations</li>
+                            <li>CNN Architectures</li>
+                            <li>Transfer Learning</li>
+                        </ul>
+                        <a href="#cnn" class="btn-small">View Notes</a>
+                    </div>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-card-header">
+                        <i class="fas fa-language"></i>
+                        <h3>Recurrent Neural Networks</h3>
+                    </div>
+                    <div class="topic-card-body">
+                        <p>Neural networks designed for sequential data processing.</p>
+                        <ul class="topic-list">
+                            <li>RNN Architecture</li>
+                            <li>LSTM & GRU</li>
+                            <li>Sequence Modeling</li>
+                            <li>Attention Mechanisms</li>
+                        </ul>
+                        <a href="#rnn" class="btn-small">View Notes</a>
+                    </div>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-card-header">
+                        <i class="fas fa-robot"></i>
+                        <h3>Transformers</h3>
+                    </div>
+                    <div class="topic-card-body">
+                        <p>State-of-the-art architecture for NLP and beyond.</p>
+                        <ul class="topic-list">
+                            <li>Self-Attention</li>
+                            <li>Multi-Head Attention</li>
+                            <li>Positional Encoding</li>
+                            <li>BERT, GPT & T5</li>
+                        </ul>
+                        <a href="#transformers" class="btn-small">View Notes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="deep-learning-notes">
+        <div class="container">
+            <h2 class="section-title">Study Notes</h2>
+            
+            <div id="neural-networks" class="note-container">
+                <h3>Neural Networks Fundamentals</h3>
+                
+                <p>Neural networks are the foundation of deep learning, inspired by the structure and function of the human brain. They consist of interconnected layers of nodes (neurons) that process and transform input data to produce meaningful outputs.</p>
+                
+                <h4>Key Components:</h4>
+                <ul>
+                    <li><strong>Neurons:</strong> Basic computational units that receive inputs, apply weights, and produce outputs.</li>
+                    <li><strong>Weights and Biases:</strong> Parameters that are adjusted during training to minimize error.</li>
+                    <li><strong>Activation Functions:</strong> Non-linear functions that determine the output of a neuron.</li>
+                </ul>
+                
+                <div class="math-formula">
+                    <p>Output of a neuron: y = f(Σ(w_i * x_i) + b)</p>
+                    <p>where:</p>
+                    <p>- w_i are the weights</p>
+                    <p>- x_i are the inputs</p>
+                    <p>- b is the bias</p>
+                    <p>- f is the activation function</p>
+                </div>
+                
+                <p>Common activation functions include:</p>
+                <ul>
+                    <li><strong>Sigmoid:</strong> σ(x) = 1 / (1 + e^(-x))</li>
+                    <li><strong>ReLU:</strong> f(x) = max(0, x)</li>
+                    <li><strong>Tanh:</strong> tanh(x) = (e^x - e^(-x)) / (e^x + e^(-x))</li>
+                </ul>
+                
+                <p>The training process involves:</p>
+                <ol>
+                    <li><strong>Forward Propagation:</strong> Input data passes through the network to generate predictions.</li>
+                    <li><strong>Loss Calculation:</strong> Comparing predictions with actual values to compute error.</li>
+                    <li><strong>Backpropagation:</strong> Computing gradients of the loss with respect to weights.</li>
+                    <li><strong>Weight Update:</strong> Adjusting weights using an optimization algorithm like gradient descent.</li>
+                </ol>
+                
+                <pre><code>
+# Simple neural network in Python with NumPy
+import numpy as np
+
+class NeuralNetwork:
+    def __init__(self, input_size, hidden_size, output_size):
+        self.W1 = np.random.randn(input_size, hidden_size) * 0.01
+        self.b1 = np.zeros((1, hidden_size))
+        self.W2 = np.random.randn(hidden_size, output_size) * 0.01
+        self.b2 = np.zeros((1, output_size))
+        
+    def forward(self, X):
+        # First layer
+        self.z1 = np.dot(X, self.W1) + self.b1
+        self.a1 = np.maximum(0, self.z1)  # ReLU activation
+        
+        # Output layer
+        self.z2 = np.dot(self.a1, self.W2) + self.b2
+        self.a2 = 1 / (1 + np.exp(-self.z2))  # Sigmoid activation
+        
+        return self.a2
+                </code></pre>
+            </div>
+            
+            <div id="cnn" class="note-container">
+                <h3>Convolutional Neural Networks (CNNs)</h3>
+                
+                <p>Convolutional Neural Networks are specialized neural networks designed for processing grid-like data, such as images. They use convolutional layers to automatically learn spatial hierarchies of features.</p>
+                
+                <h4>Key Components:</h4>
+                <ul>
+                    <li><strong>Convolutional Layers:</strong> Apply filters to input data to extract features.</li>
+                    <li><strong>Pooling Layers:</strong> Reduce spatial dimensions and computational complexity.</li>
+                    <li><strong>Fully Connected Layers:</strong> Connect every neuron to all neurons in the previous layer.</li>
+                </ul>
+                
+                <p>Popular CNN architectures include:</p>
+                <ul>
+                    <li><strong>LeNet-5:</strong> Early CNN for digit recognition.</li>
+                    <li><strong>AlexNet:</strong> Breakthrough architecture that won ImageNet in 2012.</li>
+                    <li><strong>VGG:</strong> Deep network with small 3x3 filters.</li>
+                    <li><strong>ResNet:</strong> Introduced skip connections to train very deep networks.</li>
+                    <li><strong>Inception/GoogLeNet:</strong> Uses inception modules with parallel convolutions.</li>
+                </ul>
+                
+                <p>CNNs have revolutionized computer vision tasks such as:</p>
+                <ul>
+                    <li>Image Classification</li>
+                    <li>Object Detection</li>
+                    <li>Semantic Segmentation</li>
+                    <li>Face Recognition</li>
+                </ul>
+            </div>
+            
+            <div id="rnn" class="note-container">
+                <h3>Recurrent Neural Networks (RNNs)</h3>
+                
+                <p>Recurrent Neural Networks are designed to work with sequential data by maintaining an internal state (memory) that captures information about previous inputs in the sequence.</p>
+                
+                <h4>Key Concepts:</h4>
+                <ul>
+                    <li><strong>Recurrent Connections:</strong> Connections that feed back into the network, creating a form of memory.</li>
+                    <li><strong>Hidden State:</strong> Internal memory that captures information about previous sequence elements.</li>
+                    <li><strong>Vanishing/Exploding Gradients:</strong> Common problems in training traditional RNNs.</li>
+                </ul>
+                
+                <p>Advanced RNN Architectures:</p>
+                <ul>
+                    <li><strong>LSTM (Long Short-Term Memory):</strong> Uses gates to control information flow and address vanishing gradients.</li>
+                    <li><strong>GRU (Gated Recurrent Unit):</strong> Simplified version of LSTM with fewer parameters.</li>
+                    <li><strong>Bidirectional RNNs:</strong> Process sequences in both forward and backward directions.</li>
+                </ul>
+                
+                <div class="math-formula">
+                    <p>LSTM Gates:</p>
+                    <p>- Forget gate: f_t = σ(W_f · [h_{t-1}, x_t] + b_f)</p>
+                    <p>- Input gate: i_t = σ(W_i · [h_{t-1}, x_t] + b_i)</p>
+                    <p>- Output gate: o_t = σ(W_o · [h_{t-1}, x_t] + b_o)</p>
+                    <p>- Cell state: C_t = f_t * C_{t-1} + i_t * tanh(W_c · [h_{t-1}, x_t] + b_c)</p>
+                    <p>- Hidden state: h_t = o_t * tanh(C_t)</p>
+                </div>
+                
+                <p>RNNs are used for various sequence modeling tasks:</p>
+                <ul>
+                    <li>Natural Language Processing</li>
+                    <li>Speech Recognition</li>
+                    <li>Time Series Prediction</li>
+                    <li>Machine Translation</li>
+                </ul>
+            </div>
+            
+            <div id="transformers" class="note-container">
+                <h3>Transformers</h3>
+                
+                <p>Transformers are a type of neural network architecture that relies entirely on self-attention mechanisms, dispensing with recurrence and convolutions. They have revolutionized natural language processing and are expanding to other domains.</p>
+                
+                <h4>Key Components:</h4>
+                <ul>
+                    <li><strong>Self-Attention:</strong> Allows the model to weigh the importance of different words in a sequence.</li>
+                    <li><strong>Multi-Head Attention:</strong> Runs multiple attention operations in parallel.</li>
+                    <li><strong>Positional Encoding:</strong> Adds information about token positions in the sequence.</li>
+                    <li><strong>Feed-Forward Networks:</strong> Applied to each position separately and identically.</li>
+                </ul>
+                
+                <p>The self-attention mechanism computes attention scores as follows:</p>
+                <div class="math-formula">
+                    <p>Attention(Q, K, V) = softmax(QK^T / √d_k)V</p>
+                    <p>where:</p>
+                    <p>- Q (query), K (key), and V (value) are matrices derived from the input</p>
+                    <p>- d_k is the dimension of the keys</p>
+                </div>
+                
+                <p>Popular Transformer-based models:</p>
+                <ul>
+                    <li><strong>BERT:</strong> Bidirectional Encoder Representations from Transformers, pre-trained on masked language modeling.</li>
+                    <li><strong>GPT (1, 2, 3, 4):</strong> Generative Pre-trained Transformer, autoregressive language model.</li>
+                    <li><strong>T5:</strong> Text-to-Text Transfer Transformer, frames all NLP tasks as text-to-text problems.</li>
+                    <li><strong>ViT:</strong> Vision Transformer, applies transformers to image recognition.</li>
+                </ul>
+                
+                <p>Transformers have achieved state-of-the-art results in:</p>
+                <ul>
+                    <li>Language Modeling</li>
+                    <li>Machine Translation</li>
+                    <li>Question Answering</li>
+                    <li>Text Summarization</li>
+                    <li>Image Recognition (with adaptations)</li>
+                </ul>
+            </div>
+            
+            <div class="resource-links">
+                <h3>Recommended Resources</h3>
+                <ul>
+                    <li><a href="https://www.deeplearningbook.org/" target="_blank">Deep Learning Book by Ian Goodfellow, Yoshua Bengio, and Aaron Courville</a></li>
+                    <li><a href="https://www.coursera.org/specializations/deep-learning" target="_blank">Deep Learning Specialization by Andrew Ng on Coursera</a></li>
+                    <li><a href="https://pytorch.org/tutorials/" target="_blank">PyTorch Tutorials</a></li>
+                    <li><a href="https://www.tensorflow.org/tutorials" target="_blank">TensorFlow Tutorials</a></li>
+                    <li><a href="https://distill.pub/" target="_blank">Distill.pub - Clear explanations of machine learning concepts</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../leetcode/index.html">LeetCode Notes</a></li>
+                        <li><a href="index.html">Deep Learning</a></li>
+                        <li><a href="../github/index.html">GitHub Projects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 My Personal Website. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html> 

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Sum - C Solution | My Personal Website</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-light.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <style>
+        .problem-container {
+            background-color: var(--light-background);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .problem-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .problem-title {
+            margin: 0;
+            color: var(--primary-color);
+        }
+        
+        .problem-difficulty {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .easy {
+            background-color: #5cb85c;
+        }
+        
+        .medium {
+            background-color: #f0ad4e;
+        }
+        
+        .hard {
+            background-color: #d9534f;
+        }
+        
+        .problem-description {
+            margin-bottom: 30px;
+        }
+        
+        .problem-description h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .problem-description p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+        
+        .example {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-family: monospace;
+        }
+        
+        .solution-container {
+            margin-bottom: 40px;
+        }
+        
+        .solution-container h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        
+        .approach {
+            margin-bottom: 30px;
+        }
+        
+        .approach h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        pre {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+        
+        .complexity {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .complexity-item {
+            background-color: var(--light-background);
+            padding: 15px;
+            border-radius: 5px;
+            flex: 1;
+        }
+        
+        .complexity-item h5 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .complexity-item p {
+            margin: 0;
+        }
+        
+        .notes {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-left: 4px solid var(--accent-color);
+            margin-bottom: 30px;
+        }
+        
+        .notes h4 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        
+        .related-problems {
+            margin-top: 40px;
+        }
+        
+        .related-problems h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .related-problems ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .related-problems li {
+            margin-bottom: 10px;
+        }
+        
+        .related-problems a {
+            display: inline-block;
+            padding: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">My Portfolio</h1>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../index.html" class="active">LeetCode Notes</a></li>
+                    <li><a href="../../deep-learning/index.html">Deep Learning</a></li>
+                    <li><a href="../../github/index.html">GitHub Projects</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Two Sum - C Solution</h2>
+                <p>LeetCode Problem #1</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="problem-solution">
+        <div class="container">
+            <div class="problem-container">
+                <div class="problem-header">
+                    <h2 class="problem-title">1. Two Sum</h2>
+                    <span class="problem-difficulty easy">Easy</span>
+                </div>
+                
+                <div class="problem-description">
+                    <h3>Problem Description</h3>
+                    <p>Given an array of integers <code>nums</code> and an integer <code>target</code>, return indices of the two numbers such that they add up to <code>target</code>.</p>
+                    <p>You may assume that each input would have <strong>exactly one solution</strong>, and you may not use the same element twice.</p>
+                    <p>You can return the answer in any order.</p>
+                    
+                    <h3>Examples</h3>
+                    <div class="example">
+                        <p><strong>Example 1:</strong></p>
+                        <p><strong>Input:</strong> nums = [2,7,11,15], target = 9</p>
+                        <p><strong>Output:</strong> [0,1]</p>
+                        <p><strong>Explanation:</strong> Because nums[0] + nums[1] == 9, we return [0, 1].</p>
+                    </div>
+                    
+                    <div class="example">
+                        <p><strong>Example 2:</strong></p>
+                        <p><strong>Input:</strong> nums = [3,2,4], target = 6</p>
+                        <p><strong>Output:</strong> [1,2]</p>
+                    </div>
+                    
+                    <div class="example">
+                        <p><strong>Example 3:</strong></p>
+                        <p><strong>Input:</strong> nums = [3,3], target = 6</p>
+                        <p><strong>Output:</strong> [0,1]</p>
+                    </div>
+                    
+                    <h3>Constraints</h3>
+                    <ul>
+                        <li>2 ≤ nums.length ≤ 10<sup>4</sup></li>
+                        <li>-10<sup>9</sup> ≤ nums[i] ≤ 10<sup>9</sup></li>
+                        <li>-10<sup>9</sup> ≤ target ≤ 10<sup>9</sup></li>
+                        <li><strong>Only one valid answer exists.</strong></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="solution-container">
+                <h3>Solution</h3>
+                
+                <div class="approach">
+                    <h4>Approach 1: Brute Force</h4>
+                    <p>The simplest approach is to check every possible pair of numbers in the array.</p>
+                    
+                    <pre><code class="language-c">/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
+    *returnSize = 2;
+    int* result = (int*)malloc(2 * sizeof(int));
+    
+    for (int i = 0; i < numsSize; i++) {
+        for (int j = i + 1; j < numsSize; j++) {
+            if (nums[i] + nums[j] == target) {
+                result[0] = i;
+                result[1] = j;
+                return result;
+            }
+        }
+    }
+    
+    // No solution found (should not reach here based on problem constraints)
+    return result;
+}</code></pre>
+                    
+                    <div class="complexity">
+                        <div class="complexity-item">
+                            <h5>Time Complexity</h5>
+                            <p>O(n²) - We have two nested loops, each going through the array.</p>
+                        </div>
+                        <div class="complexity-item">
+                            <h5>Space Complexity</h5>
+                            <p>O(1) - We only use a constant amount of extra space.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="approach">
+                    <h4>Approach 2: Hash Table</h4>
+                    <p>We can use a hash table to improve the time complexity. For each element, we check if the complement (target - nums[i]) exists in the hash table. If it does, we've found our solution. If not, we add the current element to the hash table.</p>
+                    
+                    <pre><code class="language-c">#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+// Simple hash table implementation
+typedef struct {
+    int key;   // The number
+    int value; // Its index in the array
+    int used;  // Whether this slot is used
+} HashEntry;
+
+typedef struct {
+    HashEntry* entries;
+    int size;
+} HashMap;
+
+// Initialize hash map
+HashMap* createHashMap(int size) {
+    HashMap* map = (HashMap*)malloc(sizeof(HashMap));
+    map->size = size;
+    map->entries = (HashEntry*)malloc(sizeof(HashEntry) * size);
+    memset(map->entries, 0, sizeof(HashEntry) * size);
+    return map;
+}
+
+// Hash function
+int hash(int key, int size) {
+    // Simple hash function for demonstration
+    return abs(key) % size;
+}
+
+// Put key-value pair in hash map
+void put(HashMap* map, int key, int value) {
+    int index = hash(key, map->size);
+    
+    // Linear probing to handle collisions
+    while (map->entries[index].used && map->entries[index].key != key) {
+        index = (index + 1) % map->size;
+    }
+    
+    map->entries[index].key = key;
+    map->entries[index].value = value;
+    map->entries[index].used = 1;
+}
+
+// Get value by key, returns -1 if not found
+int get(HashMap* map, int key) {
+    int index = hash(key, map->size);
+    
+    // Linear probing to find the key
+    while (map->entries[index].used) {
+        if (map->entries[index].key == key) {
+            return map->entries[index].value;
+        }
+        index = (index + 1) % map->size;
+        
+        // If we've checked all entries, break
+        if (index == hash(key, map->size)) {
+            break;
+        }
+    }
+    
+    return -1; // Not found
+}
+
+// Free hash map
+void freeHashMap(HashMap* map) {
+    free(map->entries);
+    free(map);
+}
+
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
+    *returnSize = 2;
+    int* result = (int*)malloc(2 * sizeof(int));
+    
+    // Create a hash map with size twice the array size to reduce collisions
+    HashMap* map = createHashMap(numsSize * 2);
+    
+    for (int i = 0; i < numsSize; i++) {
+        int complement = target - nums[i];
+        
+        // Check if complement exists in hash map
+        int complementIndex = get(map, complement);
+        if (complementIndex != -1) {
+            result[0] = complementIndex;
+            result[1] = i;
+            
+            // Free the hash map before returning
+            freeHashMap(map);
+            return result;
+        }
+        
+        // Add current number to hash map
+        put(map, nums[i], i);
+    }
+    
+    // Free the hash map
+    freeHashMap(map);
+    
+    // No solution found (should not reach here based on problem constraints)
+    return result;
+}</code></pre>
+                    
+                    <div class="complexity">
+                        <div class="complexity-item">
+                            <h5>Time Complexity</h5>
+                            <p>O(n) - We only need to traverse the array once.</p>
+                        </div>
+                        <div class="complexity-item">
+                            <h5>Space Complexity</h5>
+                            <p>O(n) - In the worst case, we might need to store all elements in the hash table.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="notes">
+                    <h4>Notes</h4>
+                    <ul>
+                        <li>The hash table approach is much more efficient for large arrays.</li>
+                        <li>In C, implementing a hash table requires more code compared to languages with built-in hash table data structures like Python or Java.</li>
+                        <li>The hash table implementation above is simplified and not optimized for all cases.</li>
+                        <li>For very small arrays (n < 10), the brute force approach might be faster due to lower constant factors.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="related-problems">
+                <h3>Related Problems</h3>
+                <ul>
+                    <li><a href="#">3Sum</a></li>
+                    <li><a href="#">4Sum</a></li>
+                    <li><a href="#">Two Sum II - Input Array Is Sorted</a></li>
+                    <li><a href="#">Two Sum III - Data Structure Design</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="../index.html">LeetCode Notes</a></li>
+                        <li><a href="../../deep-learning/index.html">Deep Learning</a></li>
+                        <li><a href="../../github/index.html">GitHub Projects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 My Personal Website. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+</body>
+</html> 
