@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1464. Maximum Product of Two Elements in an Array | Python Solution</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/python.min.js"></script>
+    <style>
+        .problem-container {
+            background-color: var(--background-color);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .problem-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .problem-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin: 0;
+        }
+        
+        .problem-difficulty {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            background-color: #5cb85c;
+            color: white;
+        }
+        
+        .problem-difficulty.medium {
+            background-color: #f0ad4e;
+        }
+        
+        .problem-difficulty.hard {
+            background-color: #d9534f;
+        }
+        
+        .problem-description {
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .problem-examples {
+            margin-bottom: 30px;
+        }
+        
+        .example {
+            background-color: var(--light-background);
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        
+        .example-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .example-content {
+            font-family: monospace;
+            white-space: pre;
+        }
+        
+        .problem-constraints {
+            margin-bottom: 30px;
+        }
+        
+        .constraint {
+            margin-bottom: 5px;
+        }
+        
+        .solution-container {
+            background-color: var(--background-color);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .solution-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .solution-approach {
+            margin-bottom: 20px;
+        }
+        
+        .code-block {
+            background-color: #282c34;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            background-color: #21252b;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            color: #abb2bf;
+            font-family: monospace;
+        }
+        
+        .code-language {
+            font-weight: 600;
+        }
+        
+        .copy-button {
+            background: none;
+            border: none;
+            color: #abb2bf;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .copy-button:hover {
+            color: white;
+        }
+        
+        .code-content {
+            padding: 15px;
+            overflow-x: auto;
+        }
+        
+        .complexity-analysis {
+            margin-bottom: 20px;
+        }
+        
+        .complexity-item {
+            margin-bottom: 10px;
+        }
+        
+        .complexity-type {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .notes {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .related-problems {
+            background-color: var(--background-color);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 30px;
+        }
+        
+        .related-problems-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .related-problems-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        
+        .related-problem {
+            background-color: var(--light-background);
+            padding: 15px;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+        
+        .related-problem:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .related-problem-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .related-problem-difficulty {
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">My Portfolio</h1>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../index.html" class="active">LeetCode Notes</a></li>
+                    <li><a href="../../deep-learning/index.html">Deep Learning</a></li>
+                    <li><a href="../../github/index.html">GitHub Projects</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>LeetCode Solution</h2>
+                <p>Problem 1464: Maximum Product of Two Elements in an Array</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="problem">
+        <div class="container">
+            <div class="problem-container">
+                <div class="problem-header">
+                    <h2 class="problem-title">1464. Maximum Product of Two Elements in an Array</h2>
+                    <span class="problem-difficulty easy">Easy</span>
+                </div>
+                
+                <div class="problem-description">
+                    <p>Given the array of integers <code>nums</code>, you will choose two different indices <code>i</code> and <code>j</code> of that array. <em>Return the maximum value of</em> <code>(nums[i]-1)*(nums[j]-1)</code>.</p>
+                </div>
+                
+                <div class="problem-examples">
+                    <h3>Examples:</h3>
+                    
+                    <div class="example">
+                        <div class="example-title">Example 1:</div>
+                        <div class="example-content">
+<strong>Input:</strong> nums = [3,4,5,2]
+<strong>Output:</strong> 12
+<strong>Explanation:</strong> If you choose the indices i=1 and j=2 (indexed from 0), you will get the maximum value, that is, (nums[1]-1)*(nums[2]-1) = (4-1)*(5-1) = 3*4 = 12.
+                        </div>
+                    </div>
+                    
+                    <div class="example">
+                        <div class="example-title">Example 2:</div>
+                        <div class="example-content">
+<strong>Input:</strong> nums = [1,5,4,5]
+<strong>Output:</strong> 16
+<strong>Explanation:</strong> Choosing the indices i=1 and j=3 (indexed from 0), you will get the maximum value of (5-1)*(5-1) = 16.
+                        </div>
+                    </div>
+                    
+                    <div class="example">
+                        <div class="example-title">Example 3:</div>
+                        <div class="example-content">
+<strong>Input:</strong> nums = [3,7]
+<strong>Output:</strong> 12
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="problem-constraints">
+                    <h3>Constraints:</h3>
+                    <ul>
+                        <li class="constraint"><code>2 <= nums.length <= 500</code></li>
+                        <li class="constraint"><code>1 <= nums[i] <= 10^3</code></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="solution-container">
+                <h2 class="solution-title">Solution</h2>
+                
+                <div class="solution-approach">
+                    <h3>Approach 1: Sorting</h3>
+                    <p>A straightforward approach is to sort the array and then compute the product of the two largest elements minus 1.</p>
+                    
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-language">Python</span>
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy"></i> Copy
+                            </button>
+                        </div>
+                        <div class="code-content">
+                            <pre><code class="language-python">class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        nums.sort()
+        return (nums[-1] - 1) * (nums[-2] - 1)</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="complexity-analysis">
+                        <h4>Complexity Analysis:</h4>
+                        <div class="complexity-item">
+                            <span class="complexity-type">Time Complexity:</span> O(n log n) due to sorting.
+                        </div>
+                        <div class="complexity-item">
+                            <span class="complexity-type">Space Complexity:</span> O(1) or O(n) depending on the sorting implementation.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="solution-approach">
+                    <h3>Approach 2: Find Two Largest Elements</h3>
+                    <p>We can also find the two largest elements in a single pass through the array.</p>
+                    
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-language">Python</span>
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy"></i> Copy
+                            </button>
+                        </div>
+                        <div class="code-content">
+                            <pre><code class="language-python">class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        first_max = second_max = 0
+        
+        for num in nums:
+            if num > first_max:
+                second_max = first_max
+                first_max = num
+            elif num > second_max:
+                second_max = num
+                
+        return (first_max - 1) * (second_max - 1)</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="complexity-analysis">
+                        <h4>Complexity Analysis:</h4>
+                        <div class="complexity-item">
+                            <span class="complexity-type">Time Complexity:</span> O(n) where n is the length of the array.
+                        </div>
+                        <div class="complexity-item">
+                            <span class="complexity-type">Space Complexity:</span> O(1) as we only use two variables.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="solution-approach">
+                    <h3>Approach 3: My Solution</h3>
+                    <p>Below is my implementation that handles different cases for positive and negative numbers.</p>
+                    
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-language">Python</span>
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy"></i> Copy
+                            </button>
+                        </div>
+                        <div class="code-content">
+                            <pre><code class="language-python">nums=[3,7]
+list_min=[]
+list_plus=[]
+for i in range(len(nums)):
+    if nums[i]>1:
+        list_plus.append(nums[i]-1)
+    elif nums[i]<1:
+        list_min.append(nums[i]-1)
+    else:
+        pass
+if len(list_plus)>=2:
+    num1=max(list_plus)
+    list_plus.remove(num1)
+    num2=max(list_plus)
+    plus_max=num1*num2
+else:
+    plus_max=0
+if len(list_min)>=2:
+    num3=min(list_min)
+    list_min.remove(num3)
+    num4=min(list_min)
+    min_max=num3*num4
+else:
+    min_max=0
+return max(plus_max, min_max)</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="complexity-analysis">
+                        <h4>Complexity Analysis:</h4>
+                        <div class="complexity-item">
+                            <span class="complexity-type">Time Complexity:</span> O(n) where n is the length of the array.
+                        </div>
+                        <div class="complexity-item">
+                            <span class="complexity-type">Space Complexity:</span> O(n) in the worst case if all elements are stored in the lists.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="notes">
+                    <h4>Notes:</h4>
+                    <p>For this problem, Approach 2 is the most efficient as it has O(n) time complexity and O(1) space complexity. My solution works but is more complex and uses more memory than necessary.</p>
+                    <p>Since the problem states that all elements are positive (1 <= nums[i] <= 10^3), we don't need to handle negative numbers separately.</p>
+                </div>
+            </div>
+            
+            <div class="related-problems">
+                <h2 class="related-problems-title">Related Problems</h2>
+                
+                <div class="related-problems-list">
+                    <a href="628-maximum-product-of-three-numbers.html" class="related-problem">
+                        <div class="related-problem-title">628. Maximum Product of Three Numbers</div>
+                        <div class="related-problem-difficulty">Easy</div>
+                    </a>
+                    
+                    <a href="2149-rearrange-array-elements-by-sign.html" class="related-problem">
+                        <div class="related-problem-title">2149. Rearrange Array Elements by Sign</div>
+                        <div class="related-problem-difficulty">Medium</div>
+                    </a>
+                    
+                    <a href="2099-find-subsequence-of-length-k.html" class="related-problem">
+                        <div class="related-problem-title">2099. Find Subsequence of Length K With the Largest Sum</div>
+                        <div class="related-problem-difficulty">Easy</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="../index.html">LeetCode Notes</a></li>
+                        <li><a href="../../deep-learning/index.html">Deep Learning</a></li>
+                        <li><a href="../../github/index.html">GitHub Projects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="https://github.com/Passwerob" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 My Personal Website. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script>
+        // 代码高亮
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('pre code').forEach((block) => {
+                hljs.highlightBlock(block);
+            });
+        });
+        
+        // 复制代码功能
+        function copyCode(button) {
+            const codeBlock = button.parentElement.nextElementSibling;
+            const code = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
+</body>
+</html> 
