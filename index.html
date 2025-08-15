@@ -3,12 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Passwerob - 个人网站</title>
+    <title>Passwerob - 手写数字识别 | 深度学习项目展示</title>
+    <meta name="description" content="Passwerob的个人网站，专注于深度学习项目开发。特色项目：基于CNN的手写数字识别系统，使用TensorFlow和Keras实现，支持实时手写输入识别。">
+    <meta name="keywords" content="手写数字识别,深度学习,CNN,TensorFlow,Keras,机器学习,神经网络,Python,开源项目,GitHub">
+    <meta name="author" content="Passwerob">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://passwerob.github.io/">
+    <meta property="og:title" content="Passwerob - 手写数字识别 | 深度学习项目展示">
+    <meta property="og:description" content="基于CNN的手写数字识别系统，支持实时手写输入识别。体验AI的魅力，为开源项目加星支持！">
+    <meta property="og:image" content="https://passwerob.github.io/images/handwriting-demo.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://passwerob.github.io/">
+    <meta property="twitter:title" content="Passwerob - 手写数字识别 | 深度学习项目展示">
+    <meta property="twitter:description" content="基于CNN的手写数字识别系统，支持实时手写输入识别。体验AI的魅力，为开源项目加星支持！">
+    <meta property="twitter:image" content="https://passwerob.github.io/images/handwriting-demo.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <!-- Performance Optimization -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//api.github.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="css/modern-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- 预加载器 -->
+    <div class="preloader" id="preloader">
+        <div class="loader-animation"></div>
+    </div>
+
     <!-- 导航栏 -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -46,14 +81,21 @@
                         </h1>
                         <p class="hero-subtitle">一个专注于深度学习的个人空间</p>
                         <div class="hero-buttons">
-                            <button class="btn btn-primary" onclick="navigateToSlide(2)">
+                            <button class="btn btn-primary" onclick="navigateToSlide(4)">
+                                <i class="fas fa-pencil-alt"></i>
+                                体验手写识别
+                            </button>
+                            <button class="btn btn-secondary" onclick="navigateToSlide(2)">
                                 <i class="fas fa-brain"></i>
-                                探索笔记
+                                深度学习笔记
                             </button>
-                            <button class="btn btn-secondary" onclick="navigateToSlide(3)">
+                            <a href="https://github.com/Passwerob/hand-writing-number-recognition-code" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               class="btn btn-outline">
                                 <i class="fab fa-github"></i>
-                                查看项目
-                            </button>
+                                GitHub项目 ⭐
+                            </a>
                         </div>
                     </div>
                     <div class="hero-visual">
@@ -397,11 +439,107 @@
                         <h2 class="section-title">个人项目</h2>
                         <div class="section-underline"></div>
                     </div>
+                    
+                    <!-- 手写数字识别特色项目展示 -->
+                    <div class="featured-project">
+                        <div class="featured-badge">
+                            <i class="fas fa-star"></i>
+                            特色项目
+                        </div>
+                        
+                        <h3 style="color: var(--text-color); font-size: 2rem; margin-bottom: 1rem; position: relative; z-index: 2;">
+                            🖋️ 手写数字识别系统
+                        </h3>
+                        
+                        <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; position: relative; z-index: 2;">
+                            基于深度学习的手写数字识别项目，使用卷积神经网络(CNN)实现高精度的数字识别。
+                            支持实时手写输入，具有直观的Web界面和强大的后端处理能力。
+                        </p>
+                        
+                        <div class="tech-stack">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">TensorFlow</span>
+                            <span class="tech-badge">Keras</span>
+                            <span class="tech-badge">OpenCV</span>
+                            <span class="tech-badge">NumPy</span>
+                            <span class="tech-badge">Flask</span>
+                            <span class="tech-badge">HTML5 Canvas</span>
+                        </div>
+                        
+                        <div class="project-demo">
+                            <div class="demo-canvas" id="handwriting-canvas">
+                                <div style="text-align: center; color: var(--text-secondary);">
+                                    <i class="fas fa-pencil-alt" style="font-size: 2rem; margin-bottom: 1rem; color: var(--primary-color);"></i>
+                                    <p>点击这里绘制数字<br><small>(0-9)</small></p>
+                                </div>
+                            </div>
+                            
+                            <div class="demo-result">
+                                <div class="prediction-display" id="prediction-result">?</div>
+                                <div class="confidence-bar">
+                                    <div class="confidence-fill" id="confidence-fill"></div>
+                                </div>
+                                <p style="color: var(--text-secondary); text-align: center; margin: 0;">
+                                    识别置信度: <span id="confidence-text">0%</span>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-controls">
+                            <button class="btn btn-outline" onclick="clearCanvas()">
+                                <i class="fas fa-eraser"></i>
+                                清除
+                            </button>
+                            <button class="btn btn-primary" onclick="recognizeDigit()">
+                                <i class="fas fa-brain"></i>
+                                识别数字
+                            </button>
+                            <button class="btn btn-secondary" onclick="generateSample()">
+                                <i class="fas fa-random"></i>
+                                示例数字
+                            </button>
+                        </div>
+                        
+                        <div class="github-stats">
+                            <div class="stat-box">
+                                <div class="stat-number" id="project-stars">⭐</div>
+                                <div class="stat-label">GitHub Stars</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-number">95%+</div>
+                                <div class="stat-label">识别精度</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-number">CNN</div>
+                                <div class="stat-label">深度学习</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-number">MNIST</div>
+                                <div class="stat-label">数据集</div>
+                            </div>
+                        </div>
+                        
+                        <div class="star-appeal">
+                            <h3>🌟 支持开源项目</h3>
+                            <p>
+                                如果您觉得这个手写数字识别项目对您有帮助，或者对深度学习技术感兴趣，
+                                请不吝给我的GitHub项目一个⭐Star！您的支持是我持续改进和开发的动力。
+                            </p>
+                            <a href="https://github.com/Passwerob/hand-writing-number-recognition-code" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="star-button">
+                                <i class="fab fa-github"></i>
+                                在GitHub上给个Star ⭐
+                            </a>
+                        </div>
+                    </div>
+                    
                     <div class="projects-grid" id="projects-grid">
                         <!-- 项目将通过 JavaScript 动态加载 -->
                         <div class="project-card loading">
                             <div class="loading-spinner"></div>
-                            <p>正在加载 GitHub 项目...</p>
+                            <p>正在加载更多 GitHub 项目...</p>
                         </div>
                     </div>
                     <div class="projects-filter">
@@ -476,9 +614,11 @@
     <!-- 背景粒子效果 -->
     <div class="particles" id="particles"></div>
 
+    <script src="js/performance.js"></script>
     <script src="js/config.js"></script>
     <script src="js/modern-main.js"></script>
     <script src="js/github-api.js"></script>
+    <script src="js/handwriting-demo.js"></script>
     <script src="js/particles.js"></script>
 </body>
 </html> 
