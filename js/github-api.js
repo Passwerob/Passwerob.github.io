@@ -25,6 +25,9 @@ class GitHubAPI {
             const repos = await response.json();
             const processedRepos = this.processRepos(repos);
             
+            // 特别获取手写数字识别项目的详细信息
+            await this.fetchHandwritingProjectDetails();
+            
             // 缓存结果
             this.cache.set(cacheKey, {
                 data: processedRepos,
@@ -35,6 +38,27 @@ class GitHubAPI {
         } catch (error) {
             console.error('Failed to fetch GitHub repos:', error);
             return this.getFallbackProjects();
+        }
+    }
+
+    async fetchHandwritingProjectDetails() {
+        try {
+            const response = await fetch(`${this.apiBase}/repos/${this.username}/hand-writing-number-recognition-code`);
+            if (response.ok) {
+                const projectData = await response.json();
+                this.updateHandwritingProjectDisplay(projectData);
+            }
+        } catch (error) {
+            console.error('Failed to fetch handwriting project details:', error);
+            // 使用默认值
+            this.updateHandwritingProjectDisplay({ stargazers_count: '⭐' });
+        }
+    }
+
+    updateHandwritingProjectDisplay(projectData) {
+        const starsElement = document.getElementById('project-stars');
+        if (starsElement && projectData.stargazers_count !== undefined) {
+            starsElement.textContent = projectData.stargazers_count > 0 ? projectData.stargazers_count : '⭐';
         }
     }
     
