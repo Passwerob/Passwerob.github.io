@@ -1,112 +1,193 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Website</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>TechVault - 未来文件管理平台</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1 class="logo">My Portfolio</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="leetcode/index.html">LeetCode Notes</a></li>
-                    <li><a href="deep-learning/index.html">Deep Learning</a></li>
-                    <li><a href="github/index.html">GitHub Projects</a></li>
-                </ul>
-            </nav>
+    <div class="matrix-bg"></div>
+    
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fas fa-cube"></i>
+            <span>TechVault</span>
         </div>
-    </header>
+        <div class="nav-links">
+            <a href="#home" class="nav-link active">首页</a>
+            <a href="#files" class="nav-link">文件</a>
+            <a href="#upload" class="nav-link">上传</a>
+            <a href="#about" class="nav-link">关于</a>
+        </div>
+        <div class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
 
-    <section class="hero">
-        <div class="container">
+    <!-- 主页面 -->
+    <main class="main-container">
+        <!-- 英雄区域 -->
+        <section id="home" class="hero-section">
             <div class="hero-content">
-                <h2>Welcome to My Personal Website</h2>
-                <p>A showcase of my programming journey, study notes, and projects</p>
-                <a href="#about" class="btn">Learn More</a>
+                <h1 class="hero-title">
+                    <span class="glitch" data-text="TECHVAULT">TECHVAULT</span>
+                </h1>
+                <p class="hero-subtitle">下一代文件管理平台</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" id="fileCount">0</div>
+                        <div class="stat-label">文件总数</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="totalSize">0 MB</div>
+                        <div class="stat-label">存储空间</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="uploadToday">0</div>
+                        <div class="stat-label">今日上传</div>
+                    </div>
+                </div>
+                <button class="cta-button" onclick="scrollToSection('upload')">
+                    <span>开始上传</span>
+                    <i class="fas fa-rocket"></i>
+                </button>
             </div>
-        </div>
-    </section>
+            <div class="hero-visual">
+                <div class="floating-cube"></div>
+                <div class="tech-grid"></div>
+            </div>
+        </section>
 
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
+        <!-- 文件管理区域 -->
+        <section id="files" class="files-section">
+            <div class="section-header">
+                <h2>文件管理中心</h2>
+                <div class="view-controls">
+                    <button class="view-btn active" data-view="grid">
+                        <i class="fas fa-th"></i>
+                    </button>
+                    <button class="view-btn" data-view="list">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="files-toolbar">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchFiles" placeholder="搜索文件...">
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">全部</button>
+                    <button class="filter-btn" data-filter="image">图片</button>
+                    <button class="filter-btn" data-filter="document">文档</button>
+                    <button class="filter-btn" data-filter="video">视频</button>
+                    <button class="filter-btn" data-filter="other">其他</button>
+                </div>
+            </div>
+
+            <div class="files-grid" id="filesGrid">
+                <!-- 文件项将通过JavaScript动态生成 -->
+            </div>
+        </section>
+
+        <!-- 上传区域 -->
+        <section id="upload" class="upload-section">
+            <div class="upload-container">
+                <h2>文件上传</h2>
+                <div class="upload-zone" id="uploadZone">
+                    <div class="upload-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h3>拖拽文件至此或点击上传</h3>
+                    <p>支持图片、文档、视频等多种格式</p>
+                    <input type="file" id="fileInput" multiple hidden>
+                    <button class="upload-button" onclick="document.getElementById('fileInput').click()">
+                        选择文件
+                    </button>
+                </div>
+                
+                <div class="upload-progress" id="uploadProgress" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div class="progress-text" id="progressText">0%</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 关于区域 -->
+        <section id="about" class="about-section">
             <div class="about-content">
-                <div class="about-text">
-                    <p>Hello! I'm a passionate programmer and machine learning enthusiast. This website serves as a portfolio of my work and a repository for my study notes.</p>
-                    <p>Here you'll find my LeetCode solutions in C and Python, deep learning study notes, and showcases of my GitHub projects.</p>
-                </div>
-                <div class="skills">
-                    <h3>Skills</h3>
-                    <ul>
-                        <li>C/C++ Programming</li>
-                        <li>Python Development</li>
-                        <li>Deep Learning</li>
-                        <li>Algorithm Design</li>
-                        <li>Web Development</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="featured">
-        <div class="container">
-            <h2 class="section-title">Featured Content</h2>
-            <div class="cards">
-                <div class="card">
-                    <div class="card-icon"><i class="fas fa-code"></i></div>
-                    <h3>LeetCode Notes</h3>
-                    <p>My solutions and explanations for various LeetCode problems in C and Python.</p>
-                    <a href="leetcode/index.html" class="btn-small">View Notes</a>
-                </div>
-                <div class="card">
-                    <div class="card-icon"><i class="fas fa-brain"></i></div>
-                    <h3>Deep Learning</h3>
-                    <p>Study notes and insights on deep learning concepts and implementations.</p>
-                    <a href="deep-learning/index.html" class="btn-small">View Notes</a>
-                </div>
-                <div class="card">
-                    <div class="card-icon"><i class="fab fa-github"></i></div>
-                    <h3>GitHub Projects</h3>
-                    <p>Showcase of my open-source contributions and personal projects.</p>
-                    <a href="github/index.html" class="btn-small">View Projects</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Navigation</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="leetcode/index.html">LeetCode Notes</a></li>
-                        <li><a href="deep-learning/index.html">Deep Learning</a></li>
-                        <li><a href="github/index.html">GitHub Projects</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Connect</h3>
-                    <div class="social-links">
-                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <h2>关于 TechVault</h2>
+                <p>TechVault 是一个采用前沿技术构建的文件管理平台，专注于提供简洁、高效、美观的用户体验。</p>
+                <div class="tech-stack">
+                    <div class="tech-item">
+                        <i class="fab fa-html5"></i>
+                        <span>HTML5</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-css3-alt"></i>
+                        <span>CSS3</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-js-square"></i>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-node-js"></i>
+                        <span>Node.js</span>
                     </div>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2025 My Personal Website. All rights reserved.</p>
+        </section>
+    </main>
+
+    <!-- 文件详情模态框 -->
+    <div class="modal" id="fileModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-header">
+                <h3 id="modalFileName">文件名</h3>
+                <div class="modal-actions">
+                    <button class="btn-download" id="downloadBtn">
+                        <i class="fas fa-download"></i> 下载
+                    </button>
+                    <button class="btn-delete" id="deleteBtn">
+                        <i class="fas fa-trash"></i> 删除
+                    </button>
+                </div>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- 文件预览内容 -->
             </div>
         </div>
-    </footer>
+    </div>
 
-    <script src="js/main.js"></script>
+    <!-- 删除确认模态框 -->
+    <div class="modal" id="deleteModal">
+        <div class="modal-content small">
+            <h3>确认删除</h3>
+            <p>确定要删除这个文件吗？此操作不可撤销。</p>
+            <div class="modal-actions">
+                <button class="btn-cancel" onclick="closeDeleteModal()">取消</button>
+                <button class="btn-confirm" id="confirmDeleteBtn">确认删除</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 加载动画 -->
+    <div class="loading" id="loading">
+        <div class="loading-spinner"></div>
+        <p>处理中...</p>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html> 
