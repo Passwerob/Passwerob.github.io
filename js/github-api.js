@@ -61,49 +61,69 @@ class GitHubAPI {
         return [
             {
                 id: 1,
+                name: 'hand-writing-number-recognition-code',
+                description: '基于PyTorch的手写数字识别与VAE生成模型，包含完整的MNIST数据集训练、测试和生成功能',
+                url: 'https://github.com/Passwerob/hand-writing-number-recognition-code',
+                language: 'Python',
+                stars: 8,
+                forks: 2,
+                updatedAt: new Date(),
+                topics: ['machine-learning', 'pytorch', 'mnist', 'vae', 'handwriting-recognition', 'deep-learning', 'computer-vision'],
+                isPrivate: false,
+                featured: true,
+                techStack: ['PyTorch', 'NumPy', 'Matplotlib', 'MNIST', 'VAE', 'CNN'],
+                highlights: [
+                    '实现传统神经网络和卷积神经网络进行手写数字识别',
+                    '使用变分自编码器(VAE)生成高质量MNIST手写数字图像',
+                    '包含完整的数据预处理、模型训练和评估流程',
+                    '支持模型可视化和生成结果展示'
+                ]
+            },
+            {
+                id: 2,
                 name: 'deep-learning-notes',
                 description: '深度学习学习笔记和实现代码',
                 url: '#',
                 language: 'Python',
                 stars: 15,
                 forks: 3,
-                updatedAt: new Date(),
+                updatedAt: new Date(Date.now() - 86400000),
                 topics: ['deep-learning', 'pytorch', 'tensorflow'],
                 isPrivate: false
             },
             {
-                id: 2,
+                id: 3,
                 name: 'computer-vision-projects',
                 description: '计算机视觉相关项目集合',
                 url: '#',
                 language: 'Python',
                 stars: 8,
                 forks: 2,
-                updatedAt: new Date(Date.now() - 86400000), // 1天前
+                updatedAt: new Date(Date.now() - 172800000), // 2天前
                 topics: ['computer-vision', 'opencv', 'machine-learning'],
                 isPrivate: false
             },
             {
-                id: 3,
+                id: 4,
                 name: 'web-development-portfolio',
                 description: '个人网站和Web开发项目',
                 url: '#',
                 language: 'JavaScript',
                 stars: 5,
                 forks: 1,
-                updatedAt: new Date(Date.now() - 172800000), // 2天前
+                updatedAt: new Date(Date.now() - 259200000), // 3天前
                 topics: ['web', 'javascript', 'css'],
                 isPrivate: false
             },
             {
-                id: 4,
+                id: 5,
                 name: 'data-science-toolkit',
                 description: '数据科学工具和分析脚本',
                 url: '#',
                 language: 'Python',
                 stars: 12,
                 forks: 4,
-                updatedAt: new Date(Date.now() - 259200000), // 3天前
+                updatedAt: new Date(Date.now() - 345600000), // 4天前
                 topics: ['data-science', 'pandas', 'numpy'],
                 isPrivate: false
             }
@@ -197,9 +217,12 @@ class GitHubAPI {
         const category = this.categorizeProject(repo);
         const languageColor = this.getLanguageColor(repo.language);
         const timeAgo = this.getTimeAgo(repo.updatedAt);
+        const isFeatured = repo.featured === true;
         
         return `
-            <div class="project-card" data-tags="${category} ${repo.language?.toLowerCase()}" data-category="${category}">
+            <div class="project-card ${isFeatured ? 'featured' : ''}" data-tags="${category} ${repo.language?.toLowerCase()}" data-category="${category}">
+                ${isFeatured ? '<div class="featured-badge"><i class="fas fa-star"></i> 精选项目</div>' : ''}
+                
                 <div class="project-header">
                     <h3 class="project-title">
                         <a href="${repo.url}" target="_blank" rel="noopener noreferrer">
@@ -211,6 +234,24 @@ class GitHubAPI {
                 </div>
                 
                 <p class="project-description">${repo.description}</p>
+                
+                ${isFeatured && repo.highlights ? `
+                    <div class="project-highlights">
+                        <h4><i class="fas fa-lightbulb"></i> 项目亮点</h4>
+                        <ul>
+                            ${repo.highlights.map(highlight => `<li>${highlight}</li>`).join('')}
+                        </ul>
+                    </div>
+                ` : ''}
+                
+                ${isFeatured && repo.techStack ? `
+                    <div class="tech-stack">
+                        <h4><i class="fas fa-cogs"></i> 技术栈</h4>
+                        <div class="tech-tags">
+                            ${repo.techStack.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                        </div>
+                    </div>
+                ` : ''}
                 
                 <div class="project-stats">
                     <div class="stat">
@@ -231,10 +272,10 @@ class GitHubAPI {
                 
                 ${repo.topics.length > 0 ? `
                     <div class="project-topics">
-                        ${repo.topics.slice(0, 3).map(topic => 
+                        ${repo.topics.slice(0, isFeatured ? 5 : 3).map(topic => 
                             `<span class="topic-tag">${topic}</span>`
                         ).join('')}
-                        ${repo.topics.length > 3 ? `<span class="topic-more">+${repo.topics.length - 3}</span>` : ''}
+                        ${repo.topics.length > (isFeatured ? 5 : 3) ? `<span class="topic-more">+${repo.topics.length - (isFeatured ? 5 : 3)}</span>` : ''}
                     </div>
                 ` : ''}
                 
@@ -243,7 +284,7 @@ class GitHubAPI {
                         <i class="fas fa-clock"></i>
                         ${timeAgo}
                     </span>
-                    <a href="${repo.url}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-small">
+                    <a href="${repo.url}" target="_blank" rel="noopener noreferrer" class="btn ${isFeatured ? 'btn-primary' : 'btn-outline'} btn-small">
                         <i class="fas fa-external-link-alt"></i>
                         查看项目
                     </a>
@@ -520,9 +561,141 @@ document.addEventListener('DOMContentLoaded', () => {
             color: var(--text-secondary);
         }
         
+        /* Featured project styles */
+        .project-card.featured {
+            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(102, 126, 234, 0.1) 100%);
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+            position: relative;
+        }
+        
+        .project-card.featured:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        }
+        
+        .featured-badge {
+            position: absolute;
+            top: -1px;
+            right: -1px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0 18px 0 18px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .project-highlights {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .project-highlights h4 {
+            color: var(--primary-color);
+            margin: 0 0 0.75rem 0;
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .project-highlights ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .project-highlights li {
+            color: var(--text-color);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+        
+        .project-highlights li:before {
+            content: '•';
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .tech-stack {
+            margin: 1.5rem 0;
+        }
+        
+        .tech-stack h4 {
+            color: var(--accent-color);
+            margin: 0 0 0.75rem 0;
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .tech-tag {
+            background: linear-gradient(135deg, var(--accent-color), #4facfe);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(79, 172, 254, 0.3);
+        }
+        
         @media (max-width: 768px) {
             .project-card {
                 padding: 1.5rem;
+            }
+            
+            .project-card.featured {
+                padding: 1.5rem 1.5rem 2rem 1.5rem;
+            }
+            
+            .featured-badge {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+            
+            .project-highlights {
+                margin: 1rem 0;
+                padding: 0.8rem;
+            }
+            
+            .project-highlights li {
+                font-size: 0.85rem;
+            }
+            
+            .tech-stack {
+                margin: 1rem 0;
+            }
+            
+            .tech-tags {
+                gap: 0.4rem;
+            }
+            
+            .tech-tag {
+                font-size: 0.75rem;
+                padding: 0.2rem 0.6rem;
             }
             
             .project-stats {
