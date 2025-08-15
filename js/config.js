@@ -4,26 +4,26 @@ const WEBSITE_CONFIG = {
     // 个人信息
     personal: {
         name: 'Passwerob',
-        title: '深度学习与人工智能开发者',
-        description: '一个专注于深度学习与创新项目的个人空间',
-        email: 'contact@passwerob.com',
-        location: '中国',
+        title: '深度学习与人工智能学习者',
+        description: '一个专注于深度学习的个人空间',
+        email: 'yingtaoli38@gmail.com',
+        location: '中国~大连',
         avatar: '', // 可以添加头像图片URL
     },
     
     // 社交媒体链接
     social: {
         github: {
-            username: 'passwerob', // 替换为您的GitHub用户名
+            username: 'Passwerob', // 替换为您的GitHub用户名
             url: 'https://github.com/passwerob'
         },
         csdn: {
             username: 'Passwerob', // 替换为您的CSDN用户名
-            url: 'https://blog.csdn.net/passwerob'
+            url: 'https://blog.csdn.net/2401_86810419?spm=1000.2115.3001.5343'
         },
         email: {
-            address: 'contact@passwerob.com',
-            url: 'mailto:contact@passwerob.com'
+            address: 'yingtaoli38@gmail.com',
+            url: 'mailto:yingtaoli38@gmail.com'
         },
         linkedin: {
             username: '', // 可选：LinkedIn用户名
@@ -43,28 +43,26 @@ const WEBSITE_CONFIG = {
     notes: {
         feishu: {
             enabled: true,
-            documentUrl: '', // 请添加您的飞书文档分享链接
-            title: '深度学习理论与实践',
-            description: '详细的深度学习理论笔记和实践经验',
+            documentUrl: 'https://ccncszsi2pdq.feishu.cn/wiki/XEl4wLYHGiwH40kgb1ycEIzmnDg?from=from_copylink', // 请添加您的飞书文档分享链接
+            title: '3D Gaussian Splatting',
+            description: '详细的3DGS理论笔记入门理解',
             previewContent: [
-                '• 神经网络结构与前向传播',
-                '• 反向传播算法详解',
-                '• 损失函数与优化器',
-                '• 正则化技术',
-                '• 深度学习框架使用指南'
+                '• 3DGS',
+                '• 计算机图形学',
+                '• NeRF',
+                '• 三维重建',
+                '• 深度学习'
             ]
         },
         csdn: {
             enabled: true,
-            blogUrl: '', // 请添加您的CSDN博客链接
+            blogUrl: 'https://blog.csdn.net/2401_86810419/article/details/149483782?spm=1001.2014.3001.5501', // 请添加您的CSDN博客链接
             title: 'CSDN 技术博客',
             description: '技术文章和项目分享',
             previewContent: [
-                '• PyTorch实战：构建卷积神经网络',
-                '• Transformer模型解析与应用',
-                '• 深度学习模型部署指南',
-                '• 计算机视觉项目实战',
-                '• 自然语言处理技术分享'
+                '• AE',
+                '• VAE'
+                '• Generation'
             ]
         }
     },
@@ -97,10 +95,10 @@ const WEBSITE_CONFIG = {
     
     // 统计数据
     stats: {
-        notes: '50+',
-        projects: '20+',
-        experience: '2年+',
-        publications: '5+' // 可选：发表文章数
+        notes: '20+',
+        projects: '5+',
+        experience: '1年+',
+        publications: 'will be increasing' // 可选：发表文章数
     },
     
     // 学习进度时间线
@@ -136,9 +134,9 @@ const WEBSITE_CONFIG = {
     friendLinks: [
         // 示例友情链接，请根据实际情况修改
         {
-            name: '朋友网站1',
+            name: '友情网站',
             description: '网站描述',
-            url: '#',
+            url: 'https://kiiye9697.cn/',
             avatar: '', // 可选：朋友网站logo
             enabled: false // 设置为true来显示
         },
