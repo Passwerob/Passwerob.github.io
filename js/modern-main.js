@@ -524,23 +524,23 @@ function openCSDN() {
     }
 }
 
-// 友情链接管理
-function addFriendLink() {
-    const friendsGrid = document.getElementById('friends-grid');
-    const newLink = document.createElement('div');
-    newLink.className = 'friend-link';
-    newLink.innerHTML = `
-        <div class="friend-link-item">
-            <h4>新朋友网站</h4>
-            <p>网站描述</p>
-            <a href="#" target="_blank">访问网站</a>
-        </div>
-    `;
-    
-    // 在占位符之前插入
-    const placeholder = friendsGrid.querySelector('.friend-link-placeholder');
-    friendsGrid.insertBefore(newLink, placeholder);
-}
+// 友情链接管理 - 已隐藏添加功能
+// function addFriendLink() {
+//     const friendsGrid = document.getElementById('friends-grid');
+//     const newLink = document.createElement('div');
+//     newLink.className = 'friend-link';
+//     newLink.innerHTML = `
+//         <div class="friend-link-item">
+//             <h4>新朋友网站</h4>
+//             <p>网站描述</p>
+//             <a href="#" target="_blank">访问网站</a>
+//         </div>
+//     `;
+//     
+//     // 在占位符之前插入
+//     const placeholder = friendsGrid.querySelector('.friend-link-placeholder');
+//     friendsGrid.insertBefore(newLink, placeholder);
+// }
 
 // 项目过滤功能
 function setupProjectFilters() {
