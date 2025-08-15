@@ -18,6 +18,8 @@ class ModernWebsite {
         this.setupKeyboardNavigation();
         this.setupTouchNavigation();
         this.startAnimations();
+        this.handleResize();
+        this.setupDeepLinking();
     }
     
     setupEventListeners() {
@@ -37,13 +39,23 @@ class ModernWebsite {
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('nav-menu');
         
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+        }
         
         // 窗口调整大小
         window.addEventListener('resize', () => this.handleResize());
+        
+        // 阻止在输入框等可编辑元素上触发全屏切换
+        document.addEventListener('wheel', (e) => {
+            const target = e.target;
+            if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable)) {
+                e.stopPropagation();
+            }
+        }, { passive: false, capture: true });
     }
     
     setupNavigation() {
@@ -102,14 +114,37 @@ class ModernWebsite {
     }
     
     handleWheel(e) {
+        const activeSlide = document.querySelectorAll('.slide')[this.currentSlide];
+        if (!activeSlide) return;
+
+        // 忽略缩放手势
+        if (e.ctrlKey) return;
+
         if (this.isScrolling) {
             e.preventDefault();
             return;
         }
-        
+
+        const isScrollable = this.isElementScrollable(activeSlide);
+        const scrollingDown = e.deltaY > 0;
+
+        if (isScrollable) {
+            const atTop = this.isAtTop(activeSlide);
+            const atBottom = this.isAtBottom(activeSlide);
+
+            if (scrollingDown && !atBottom) {
+                e.preventDefault();
+                this.scrollElement(activeSlide, e.deltaY);
+                return;
+            } else if (!scrollingDown && !atTop) {
+                e.preventDefault();
+                this.scrollElement(activeSlide, e.deltaY);
+                return;
+            }
+        }
+
         e.preventDefault();
-        
-        if (e.deltaY > 0) {
+        if (scrollingDown) {
             this.nextSlide();
         } else {
             this.previousSlide();
@@ -122,11 +157,46 @@ class ModernWebsite {
         
         if (Math.abs(touchDiff) < minSwipeDistance) return;
         
-        if (touchDiff > 0) {
+        const activeSlide = document.querySelectorAll('.slide')[this.currentSlide];
+        const isScrollable = this.isElementScrollable(activeSlide);
+        const swipingDown = touchDiff > 0; // 手指向上滑动，页面向下滚动
+
+        if (isScrollable) {
+            const atTop = this.isAtTop(activeSlide);
+            const atBottom = this.isAtBottom(activeSlide);
+
+            if (swipingDown && !atBottom) {
+                return; // 交给原生滚动
+            } else if (!swipingDown && !atTop) {
+                return; // 交给原生滚动
+            }
+        }
+        
+        if (swipingDown) {
             this.nextSlide();
         } else {
             this.previousSlide();
         }
+    }
+
+    // 判断元素是否可滚动
+    isElementScrollable(element) {
+        return !!element && element.scrollHeight > element.clientHeight + 1;
+    }
+
+    // 判断是否在顶部
+    isAtTop(element) {
+        return element.scrollTop <= 0;
+    }
+
+    // 判断是否在底部
+    isAtBottom(element) {
+        return element.scrollTop + element.clientHeight >= element.scrollHeight - 1;
+    }
+
+    // 在当前slide内滚动一定距离
+    scrollElement(element, delta) {
+        element.scrollTop += delta;
     }
     
     navigateToSlide(slideIndex) {
@@ -160,6 +230,25 @@ class ModernWebsite {
         
         // 触发页面特定的动画
         this.triggerSlideAnimations(slideIndex);
+        
+        // 更新地址栏hash以支持直达
+        const targetId = targetSlideEl.getAttribute('id');
+        if (targetId) {
+            try {
+                if (history.replaceState) {
+                    history.replaceState(null, '', `#${targetId}`);
+                } else {
+                    window.location.hash = targetId;
+                }
+            } catch (_) {}
+        }
+        
+        // 切换时将目标slide滚动到顶部
+        try {
+            targetSlideEl.scrollTo({ top: 0, behavior: 'auto' });
+        } catch (err) {
+            targetSlideEl.scrollTop = 0;
+        }
         
         // 重置滚动状态
         setTimeout(() => {
@@ -318,6 +407,32 @@ class ModernWebsite {
     startAnimations() {
         // 启动主页动画
         this.animateHomeElements();
+    }
+    
+    setupDeepLinking() {
+        const getIndexByHash = () => {
+            const hash = window.location.hash.replace('#', '');
+            if (!hash) return 0;
+            const slides = Array.from(document.querySelectorAll('.slide'));
+            const targetIndex = slides.findIndex(s => s.id === hash);
+            return targetIndex >= 0 ? targetIndex : 0;
+        };
+        
+        // 初始根据hash定位
+        try {
+            const initialIndex = getIndexByHash();
+            if (initialIndex !== this.currentSlide) {
+                this.navigateToSlide(initialIndex);
+            }
+        } catch (_) {}
+        
+        // 监听hash变化（如用户手动修改或浏览器前进后退）
+        window.addEventListener('hashchange', () => {
+            const targetIndex = getIndexByHash();
+            if (targetIndex !== this.currentSlide && !this.isScrolling) {
+                this.navigateToSlide(targetIndex);
+            }
+        });
     }
     
     handleResize() {

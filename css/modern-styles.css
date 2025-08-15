@@ -137,7 +137,7 @@ body {
 /* Slider Container */
 .slider-container {
     height: 100vh;
-    overflow: hidden;
+    overflow: hidden; /* 容器不滚动，滚动交给内部 .slide */
     position: relative;
 }
 
@@ -145,7 +145,7 @@ body {
     height: 100vh;
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     position: absolute;
     top: 0;
@@ -154,6 +154,8 @@ body {
     transform: translateY(100vh);
     transition: var(--transition-smooth);
     background: var(--dark-gradient);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .slide.active {
@@ -168,7 +170,7 @@ body {
 .slide-content {
     width: 100%;
     max-width: 1200px;
-    padding: 0 2rem;
+    padding: 6rem 2rem 2rem 2rem; /* 留出顶部导航空间，且便于内部滚动 */
     z-index: 2;
 }
 
@@ -854,7 +856,7 @@ body {
 
 @media (max-width: 768px) {
     .slide-content {
-        padding: 0 1rem;
+        padding: 5rem 1rem 1rem 1rem;
     }
     
     .hero-title {

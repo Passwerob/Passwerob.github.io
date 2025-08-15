@@ -315,6 +315,7 @@ class GitHubAPI {
 
 // 创建全局实例
 const githubAPI = new GitHubAPI();
+window.githubAPI = githubAPI;
 
 // 当深度学习笔记页面被激活时加载项目
 document.addEventListener('DOMContentLoaded', () => {
