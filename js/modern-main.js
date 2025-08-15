@@ -355,42 +355,58 @@ function previousSlide() {
 // 深度学习笔记相关函数
 function previewFeishu() {
     const previewArea = document.getElementById('feishu-preview');
-    previewArea.innerHTML = `
-        <div class="preview-content">
-            <h4>深度学习基础理论</h4>
-            <p>• 神经网络结构与前向传播</p>
-            <p>• 反向传播算法详解</p>
-            <p>• 损失函数与优化器</p>
-            <p>• 正则化技术</p>
-            <p class="preview-note">预览内容 - 完整版请访问飞书文档</p>
-        </div>
-    `;
-    previewArea.style.border = '1px solid var(--primary-color)';
+    const feishuConfig = WEBSITE_CONFIG.notes.feishu;
+    
+    if (feishuConfig.enabled) {
+        previewArea.innerHTML = `
+            <div class="preview-content">
+                <h4>${feishuConfig.title}</h4>
+                <p>${feishuConfig.description}</p>
+                ${feishuConfig.previewContent.map(item => `<p>${item}</p>`).join('')}
+                <p class="preview-note">预览内容 - 完整版请访问飞书文档</p>
+            </div>
+        `;
+        previewArea.style.border = '1px solid var(--primary-color)';
+    } else {
+        previewArea.innerHTML = '<div class="preview-content"><p>飞书文档暂未配置</p></div>';
+    }
 }
 
 function openFeishu() {
-    // 这里将来可以替换为实际的飞书文档链接
-    alert('请配置您的飞书文档链接');
+    const feishuConfig = WEBSITE_CONFIG.notes.feishu;
+    if (feishuConfig.enabled && feishuConfig.documentUrl) {
+        window.open(feishuConfig.documentUrl, '_blank');
+    } else {
+        alert('飞书文档链接暂未配置');
+    }
 }
 
 function previewCSDN() {
     const previewArea = document.getElementById('csdn-preview');
-    previewArea.innerHTML = `
-        <div class="preview-content">
-            <h4>最新技术文章</h4>
-            <p>• PyTorch实战：构建卷积神经网络</p>
-            <p>• Transformer模型解析与应用</p>
-            <p>• 深度学习模型部署指南</p>
-            <p>• 计算机视觉项目实战</p>
-            <p class="preview-note">预览内容 - 完整版请访问CSDN博客</p>
-        </div>
-    `;
-    previewArea.style.border = '1px solid var(--primary-color)';
+    const csdnConfig = WEBSITE_CONFIG.notes.csdn;
+    
+    if (csdnConfig.enabled) {
+        previewArea.innerHTML = `
+            <div class="preview-content">
+                <h4>${csdnConfig.title}</h4>
+                <p>${csdnConfig.description}</p>
+                ${csdnConfig.previewContent.map(item => `<p>${item}</p>`).join('')}
+                <p class="preview-note">预览内容 - 完整版请访问CSDN博客</p>
+            </div>
+        `;
+        previewArea.style.border = '1px solid var(--primary-color)';
+    } else {
+        previewArea.innerHTML = '<div class="preview-content"><p>CSDN博客暂未配置</p></div>';
+    }
 }
 
 function openCSDN() {
-    // 这里将来可以替换为实际的CSDN博客链接
-    alert('请配置您的CSDN博客链接');
+    const csdnConfig = WEBSITE_CONFIG.notes.csdn;
+    if (csdnConfig.enabled && csdnConfig.blogUrl) {
+        window.open(csdnConfig.blogUrl, '_blank');
+    } else {
+        alert('CSDN博客链接暂未配置');
+    }
 }
 
 // 友情链接管理

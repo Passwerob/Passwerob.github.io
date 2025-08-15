@@ -60,9 +60,9 @@ const WEBSITE_CONFIG = {
             title: 'CSDN 技术博客',
             description: '技术文章和项目分享',
             previewContent: [
-                '• AE',
-                '• VAE'
-                '• Generation'
+                '• AE（自编码器）',
+                '• VAE（变分自编码器）',
+                '• Generation（生成模型）'
             ]
         }
     },
@@ -98,7 +98,7 @@ const WEBSITE_CONFIG = {
         notes: '20+',
         projects: '5+',
         experience: '1年+',
-        publications: 'will be increasing' // 可选：发表文章数
+        publications: '持续更新' // 可选：发表文章数
     },
     
     // 学习进度时间线
@@ -134,18 +134,11 @@ const WEBSITE_CONFIG = {
     friendLinks: [
         // 示例友情链接，请根据实际情况修改
         {
-            name: '友情网站',
-            description: '网站描述',
+            name: '朋友网站',
+            description: '一个优秀的技术分享网站',
             url: 'https://kiiye9697.cn/',
             avatar: '', // 可选：朋友网站logo
-            enabled: false // 设置为true来显示
-        },
-        {
-            name: '朋友网站2',
-            description: '网站描述',
-            url: '#',
-            avatar: '',
-            enabled: false
+            enabled: true // 设置为true来显示
         }
     ],
     
@@ -288,14 +281,32 @@ function updateSocialLinks() {
     const contactItems = document.querySelectorAll('.contact-item');
     contactItems.forEach(item => {
         const icon = item.querySelector('i');
-        if (icon.classList.contains('fa-github')) {
-            const link = item.querySelector('a');
-            if (link && WEBSITE_CONFIG.social.github.url) {
+        const link = item.querySelector('a');
+        
+        if (icon.classList.contains('fa-github') && link) {
+            if (WEBSITE_CONFIG.social.github.url) {
                 link.href = WEBSITE_CONFIG.social.github.url;
                 link.textContent = `@${WEBSITE_CONFIG.social.github.username}`;
             }
+        } else if (icon.classList.contains('fa-envelope') && link) {
+            if (WEBSITE_CONFIG.social.email.url) {
+                link.href = WEBSITE_CONFIG.social.email.url;
+                link.textContent = WEBSITE_CONFIG.social.email.address;
+            }
+        } else if (icon.classList.contains('fa-blog') && link) {
+            if (WEBSITE_CONFIG.social.csdn.url) {
+                link.href = WEBSITE_CONFIG.social.csdn.url;
+                link.textContent = WEBSITE_CONFIG.social.csdn.username;
+            }
         }
-        // 其他社交链接的更新...
+    });
+    
+    // 更新位置信息（如果页面上有显示的话）
+    const locationElements = document.querySelectorAll('.location-info, .personal-location');
+    locationElements.forEach(element => {
+        if (WEBSITE_CONFIG.personal.location) {
+            element.textContent = WEBSITE_CONFIG.personal.location;
+        }
     });
 }
 
