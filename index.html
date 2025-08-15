@@ -1,112 +1,300 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Website</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Passwerob - 个人网站</title>
+    <link rel="stylesheet" href="css/modern-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1 class="logo">My Portfolio</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="leetcode/index.html">LeetCode Notes</a></li>
-                    <li><a href="deep-learning/index.html">Deep Learning</a></li>
-                    <li><a href="github/index.html">GitHub Projects</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h2>Welcome to My Personal Website</h2>
-                <p>A showcase of my programming journey, study notes, and projects</p>
-                <a href="#about" class="btn">Learn More</a>
+    <!-- 导航栏 -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Passwerob</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link active" data-section="0">主页</a>
+                <a href="#about" class="nav-link" data-section="1">关于</a>
+                <a href="#deep-learning" class="nav-link" data-section="2">深度学习笔记</a>
+                <a href="#projects" class="nav-link" data-section="3">个人项目</a>
+                <a href="#contact" class="nav-link" data-section="4">联系</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
         </div>
-    </section>
+    </nav>
 
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Hello! I'm a passionate programmer and machine learning enthusiast. This website serves as a portfolio of my work and a repository for my study notes.</p>
-                    <p>Here you'll find my LeetCode solutions in C and Python, deep learning study notes, and showcases of my GitHub projects.</p>
-                </div>
-                <div class="skills">
-                    <h3>Skills</h3>
-                    <ul>
-                        <li>C/C++ Programming</li>
-                        <li>Python Development</li>
-                        <li>Deep Learning</li>
-                        <li>Algorithm Design</li>
-                        <li>Web Development</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="featured">
-        <div class="container">
-            <h2 class="section-title">Featured Content</h2>
-            <div class="cards">
-                <div class="card">
-                    <div class="card-icon"><i class="fas fa-code"></i></div>
-                    <h3>LeetCode Notes</h3>
-                    <p>My solutions and explanations for various LeetCode problems in C and Python.</p>
-                    <a href="leetcode/index.html" class="btn-small">View Notes</a>
-                </div>
-                <div class="card">
-                    <div class="card-icon"><i class="fas fa-brain"></i></div>
-                    <h3>Deep Learning</h3>
-                    <p>Study notes and insights on deep learning concepts and implementations.</p>
-                    <a href="deep-learning/index.html" class="btn-small">View Notes</a>
-                </div>
-                <div class="card">
-                    <div class="card-icon"><i class="fab fa-github"></i></div>
-                    <h3>GitHub Projects</h3>
-                    <p>Showcase of my open-source contributions and personal projects.</p>
-                    <a href="github/index.html" class="btn-small">View Projects</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Navigation</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="leetcode/index.html">LeetCode Notes</a></li>
-                        <li><a href="deep-learning/index.html">Deep Learning</a></li>
-                        <li><a href="github/index.html">GitHub Projects</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Connect</h3>
-                    <div class="social-links">
-                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+    <!-- 滑动容器 -->
+    <div class="slider-container" id="slider-container">
+        
+        <!-- 主页面 -->
+        <section class="slide active" id="home">
+            <div class="slide-content">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                            <span class="title-line">欢迎来到</span>
+                            <span class="title-line highlight">Passwerob</span>
+                            <span class="title-line">的世界</span>
+                        </h1>
+                        <p class="hero-subtitle">一个专注于深度学习与创新项目的个人空间</p>
+                        <div class="hero-buttons">
+                            <button class="btn btn-primary" onclick="navigateToSlide(2)">
+                                <i class="fas fa-brain"></i>
+                                探索笔记
+                            </button>
+                            <button class="btn btn-secondary" onclick="navigateToSlide(3)">
+                                <i class="fab fa-github"></i>
+                                查看项目
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="floating-elements">
+                            <div class="float-element" style="--delay: 0s;">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="float-element" style="--delay: 0.5s;">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="float-element" style="--delay: 1s;">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="float-element" style="--delay: 1.5s;">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2025 My Personal Website. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+        </section>
 
-    <script src="js/main.js"></script>
+        <!-- 关于页面 -->
+        <section class="slide" id="about">
+            <div class="slide-content">
+                <div class="about-container">
+                    <div class="section-header">
+                        <h2 class="section-title">关于我</h2>
+                        <div class="section-underline"></div>
+                    </div>
+                    <div class="about-grid">
+                        <div class="about-text">
+                            <p class="about-intro">你好！我是 Passwerob，一名热衷于深度学习和人工智能的开发者。</p>
+                            <p>在这个数字化时代，我致力于探索机器学习的前沿技术，分享学习心得，并创造有价值的项目。</p>
+                            <div class="skills-cloud">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">TensorFlow</span>
+                                <span class="skill-tag">PyTorch</span>
+                                <span class="skill-tag">深度学习</span>
+                                <span class="skill-tag">计算机视觉</span>
+                                <span class="skill-tag">自然语言处理</span>
+                                <span class="skill-tag">机器学习</span>
+                                <span class="skill-tag">数据科学</span>
+                            </div>
+                        </div>
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">50+</div>
+                                <div class="stat-label">学习笔记</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">20+</div>
+                                <div class="stat-label">开源项目</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">2年+</div>
+                                <div class="stat-label">深度学习经验</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 深度学习笔记页面 -->
+        <section class="slide" id="deep-learning">
+            <div class="slide-content">
+                <div class="notes-container">
+                    <div class="section-header">
+                        <h2 class="section-title">深度学习笔记</h2>
+                        <div class="section-underline"></div>
+                    </div>
+                    <div class="notes-grid">
+                        <div class="note-card feishu-notes">
+                            <div class="card-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h3>飞书文档</h3>
+                            <p>详细的深度学习理论笔记和实践经验</p>
+                            <div class="card-preview" id="feishu-preview">
+                                <div class="preview-placeholder">
+                                    <i class="fas fa-eye"></i>
+                                    <span>点击预览内容</span>
+                                </div>
+                            </div>
+                            <div class="card-buttons">
+                                <button class="btn btn-outline" onclick="previewFeishu()">预览</button>
+                                <button class="btn btn-primary" onclick="openFeishu()">访问文档</button>
+                            </div>
+                        </div>
+                        <div class="note-card csdn-notes">
+                            <div class="card-icon">
+                                <i class="fab fa-blogger"></i>
+                            </div>
+                            <h3>CSDN 博客</h3>
+                            <p>技术文章和项目分享</p>
+                            <div class="card-preview" id="csdn-preview">
+                                <div class="preview-placeholder">
+                                    <i class="fas fa-eye"></i>
+                                    <span>点击预览内容</span>
+                                </div>
+                            </div>
+                            <div class="card-buttons">
+                                <button class="btn btn-outline" onclick="previewCSDN()">预览</button>
+                                <button class="btn btn-primary" onclick="openCSDN()">访问博客</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="notes-timeline">
+                        <h3>学习进度</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content">
+                                    <h4>神经网络基础</h4>
+                                    <p>完成基础理论学习</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content">
+                                    <h4>卷积神经网络</h4>
+                                    <p>CNN结构与应用</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content">
+                                    <h4>循环神经网络</h4>
+                                    <p>RNN、LSTM、GRU</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content">
+                                    <h4>Transformer</h4>
+                                    <p>注意力机制与现代NLP</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 个人项目页面 -->
+        <section class="slide" id="projects">
+            <div class="slide-content">
+                <div class="projects-container">
+                    <div class="section-header">
+                        <h2 class="section-title">个人项目</h2>
+                        <div class="section-underline"></div>
+                    </div>
+                    <div class="projects-grid" id="projects-grid">
+                        <!-- 项目将通过 JavaScript 动态加载 -->
+                        <div class="project-card loading">
+                            <div class="loading-spinner"></div>
+                            <p>正在加载 GitHub 项目...</p>
+                        </div>
+                    </div>
+                    <div class="projects-filter">
+                        <button class="filter-btn active" data-filter="all">全部</button>
+                        <button class="filter-btn" data-filter="javascript">JavaScript</button>
+                        <button class="filter-btn" data-filter="python">Python</button>
+                        <button class="filter-btn" data-filter="machine-learning">机器学习</button>
+                        <button class="filter-btn" data-filter="web">Web开发</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 联系页面 -->
+        <section class="slide" id="contact">
+            <div class="slide-content">
+                <div class="contact-container">
+                    <div class="section-header">
+                        <h2 class="section-title">联系我</h2>
+                        <div class="section-underline"></div>
+                    </div>
+                    <div class="contact-grid">
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                                <a href="#" target="_blank">@passwerob</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>邮箱</span>
+                                <a href="mailto:contact@passwerob.com">contact@passwerob.com</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-blog"></i>
+                                <span>CSDN</span>
+                                <a href="#" target="_blank">Passwerob</a>
+                            </div>
+                        </div>
+                        <div class="friends-links">
+                            <h3>友情链接</h3>
+                            <div class="friends-grid" id="friends-grid">
+                                <!-- 友情链接区域，为朋友网站预留 -->
+                                <div class="friend-link-placeholder">
+                                    <i class="fas fa-plus"></i>
+                                    <span>添加友情链接</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline" onclick="addFriendLink()">
+                                <i class="fas fa-link"></i>
+                                添加友情链接
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 侧边导航指示器 -->
+    <div class="slide-indicators">
+        <div class="indicator active" data-slide="0"></div>
+        <div class="indicator" data-slide="1"></div>
+        <div class="indicator" data-slide="2"></div>
+        <div class="indicator" data-slide="3"></div>
+        <div class="indicator" data-slide="4"></div>
+    </div>
+
+    <!-- 滚动箭头 -->
+    <div class="scroll-arrows">
+        <button class="arrow-btn prev-slide" onclick="previousSlide()">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+        <button class="arrow-btn next-slide" onclick="nextSlide()">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+    </div>
+
+    <!-- 背景粒子效果 -->
+    <div class="particles" id="particles"></div>
+
+    <script src="js/config.js"></script>
+    <script src="js/modern-main.js"></script>
+    <script src="js/github-api.js"></script>
+    <script src="js/particles.js"></script>
 </body>
 </html> 
