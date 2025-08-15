@@ -134,8 +134,8 @@ const WEBSITE_CONFIG = {
     friendLinks: [
         // 示例友情链接，请根据实际情况修改
         {
-            name: '朋友网站',
-            description: '一个优秀的技术分享网站',
+            name: 'kiiye9697',
+            description: '一个计算机图形学朋友的博客网站',
             url: 'https://kiiye9697.cn/',
             avatar: '', // 可选：朋友网站logo
             enabled: true // 设置为true来显示
