@@ -19,8 +19,9 @@
                 <a href="#home" class="nav-link active" data-section="0">主页</a>
                 <a href="#about" class="nav-link" data-section="1">关于</a>
                 <a href="#deep-learning" class="nav-link" data-section="2">深度学习笔记</a>
-                <a href="#projects" class="nav-link" data-section="3">个人项目</a>
-                <a href="#contact" class="nav-link" data-section="4">联系</a>
+                <a href="#learning-progress" class="nav-link" data-section="3">学习进度</a>
+                <a href="#projects" class="nav-link" data-section="4">个人项目</a>
+                <a href="#contact" class="nav-link" data-section="5">联系</a>
             </div>
             <div class="hamburger" id="hamburger">
                 <span class="bar"></span>
@@ -203,6 +204,187 @@
             </div>
         </section>
 
+        <!-- 学习进度页面 -->
+        <section class="slide" id="learning-progress">
+            <div class="slide-content">
+                <div class="learning-progress-container">
+                    <div class="section-header">
+                        <h2 class="section-title">学习进度</h2>
+                        <div class="section-underline"></div>
+                    </div>
+                    
+                    <!-- 进度仪表板 -->
+                    <div class="progress-dashboard">
+                        <div class="progress-overview">
+                            <div class="overview-card">
+                                <div class="overview-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div class="overview-content">
+                                    <h3>总体进度</h3>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 68%"></div>
+                                    </div>
+                                    <span class="progress-text">68%</span>
+                                </div>
+                            </div>
+                            
+                            <div class="overview-card">
+                                <div class="overview-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <div class="overview-content">
+                                    <h3>深度学习</h3>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 75%"></div>
+                                    </div>
+                                    <span class="progress-text">75%</span>
+                                </div>
+                            </div>
+                            
+                            <div class="overview-card">
+                                <div class="overview-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="overview-content">
+                                    <h3>实践项目</h3>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 60%"></div>
+                                    </div>
+                                    <span class="progress-text">60%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 详细学习路径 -->
+                    <div class="learning-path">
+                        <h3>学习路径</h3>
+                        <div class="path-grid">
+                            <div class="path-stage completed">
+                                <div class="stage-header">
+                                    <div class="stage-icon">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <h4>基础知识</h4>
+                                    <span class="stage-progress">100%</span>
+                                </div>
+                                <div class="stage-content">
+                                    <ul class="topic-list">
+                                        <li class="completed">Python 基础</li>
+                                        <li class="completed">数据结构与算法</li>
+                                        <li class="completed">线性代数</li>
+                                        <li class="completed">统计学基础</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="path-stage in-progress">
+                                <div class="stage-header">
+                                    <div class="stage-icon">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                    <h4>深度学习核心</h4>
+                                    <span class="stage-progress">75%</span>
+                                </div>
+                                <div class="stage-content">
+                                    <ul class="topic-list">
+                                        <li class="completed">神经网络基础</li>
+                                        <li class="completed">卷积神经网络</li>
+                                        <li class="completed">循环神经网络</li>
+                                        <li class="in-progress">Transformer 架构</li>
+                                        <li class="pending">生成对抗网络</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="path-stage pending">
+                                <div class="stage-header">
+                                    <div class="stage-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <h4>高级应用</h4>
+                                    <span class="stage-progress">20%</span>
+                                </div>
+                                <div class="stage-content">
+                                    <ul class="topic-list">
+                                        <li class="in-progress">计算机视觉</li>
+                                        <li class="pending">自然语言处理</li>
+                                        <li class="pending">强化学习</li>
+                                        <li class="pending">模型优化</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="path-stage pending">
+                                <div class="stage-header">
+                                    <div class="stage-icon">
+                                        <i class="fas fa-rocket"></i>
+                                    </div>
+                                    <h4>实战项目</h4>
+                                    <span class="stage-progress">30%</span>
+                                </div>
+                                <div class="stage-content">
+                                    <ul class="topic-list">
+                                        <li class="completed">图像分类项目</li>
+                                        <li class="in-progress">聊天机器人</li>
+                                        <li class="pending">推荐系统</li>
+                                        <li class="pending">端到端部署</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 学习统计 -->
+                    <div class="learning-stats">
+                        <h3>学习统计</h3>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <span class="stat-number">365</span>
+                                    <span class="stat-label">学习天数</span>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-book-open"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <span class="stat-number">28</span>
+                                    <span class="stat-label">完成课程</span>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <span class="stat-number">12</span>
+                                    <span class="stat-label">项目完成</span>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-fire"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <span class="stat-number">45</span>
+                                    <span class="stat-label">连续学习</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- 个人项目页面 -->
         <section class="slide" id="projects">
             <div class="slide-content">
@@ -282,6 +464,7 @@
         <div class="indicator" data-slide="2"></div>
         <div class="indicator" data-slide="3"></div>
         <div class="indicator" data-slide="4"></div>
+        <div class="indicator" data-slide="5"></div>
     </div>
 
     <!-- 滚动箭头 -->
