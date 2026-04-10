@@ -289,90 +289,62 @@ class ModernWebsite {
     triggerSlideAnimations(slideIndex) {
         const slideElement = document.querySelectorAll('.slide')[slideIndex];
         
-        // 为每个页面添加特定的进入动画
         switch(slideIndex) {
-            case 0: // 主页
-                this.animateHomeElements();
-                break;
-            case 1: // 关于页面
-                this.animateAboutElements();
-                break;
-            case 2: // 深度学习笔记
-                this.animateNotesElements();
-                break;
-            case 3: // 项目页面
-                this.animateProjectsElements();
-                break;
-            case 4: // 联系页面
-                this.animateContactElements();
-                break;
+            case 0: this.animateHomeElements(); break;
+            case 1: this.animatePubElements(); break;
+            case 2: this.animateResearchElements(); break;
+            case 3: this.animateHonorsElements(); break;
+            case 4: this.animateContactElements(); break;
         }
     }
     
     animateHomeElements() {
-        const titleLines = document.querySelectorAll('.title-line');
-        titleLines.forEach((line, index) => {
-            line.style.animation = 'none';
-            line.offsetHeight; // 触发重排
-            line.style.animation = `slideUp 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards`;
-            line.style.animationDelay = `${0.2 + index * 0.2}s`;
-        });
-        
-        const floatingElements = document.querySelectorAll('.float-element');
-        floatingElements.forEach((element, index) => {
-            element.style.animationDelay = `${index * 0.5}s`;
+        const items = document.querySelectorAll('.home-info > *');
+        items.forEach((el, i) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(12px)';
+            setTimeout(() => {
+                el.style.transition = 'all 0.4s ease';
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            }, i * 80);
         });
     }
     
-    animateAboutElements() {
-        const statItems = document.querySelectorAll('.stat-item');
-        statItems.forEach((item, index) => {
-            item.style.opacity = '0';
-            item.style.transform = 'translateY(30px)';
-            
+    animatePubElements() {
+        const pubs = document.querySelectorAll('.pub-item');
+        pubs.forEach((el, i) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(12px)';
             setTimeout(() => {
-                item.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-                item.style.opacity = '1';
-                item.style.transform = 'translateY(0)';
-            }, index * 200);
-        });
-        
-        const skillTags = document.querySelectorAll('.skill-tag');
-        skillTags.forEach((tag, index) => {
-            tag.style.opacity = '0';
-            tag.style.transform = 'scale(0.8)';
-            
-            setTimeout(() => {
-                tag.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-                tag.style.opacity = '1';
-                tag.style.transform = 'scale(1)';
-            }, 500 + index * 100);
+                el.style.transition = 'all 0.4s ease';
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            }, i * 120);
         });
     }
     
-    animateNotesElements() {
-        const noteCards = document.querySelectorAll('.note-card');
-        noteCards.forEach((card, index) => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(50px) rotateX(10deg)';
-            
+    animateResearchElements() {
+        const cards = document.querySelectorAll('.research-card');
+        cards.forEach((el, i) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(12px)';
             setTimeout(() => {
-                card.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0) rotateX(0deg)';
-            }, index * 300);
+                el.style.transition = 'all 0.4s ease';
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            }, i * 100);
         });
-        
-        const timelineItems = document.querySelectorAll('.timeline-item');
-        timelineItems.forEach((item, index) => {
-            item.style.opacity = '0';
-            item.style.transform = 'translateX(-30px)';
-            
+    }
+    
+    animateHonorsElements() {
+        const items = document.querySelectorAll('.honors-list li, .edu-item, .skill-group');
+        items.forEach((el, i) => {
+            el.style.opacity = '0';
             setTimeout(() => {
-                item.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-                item.style.opacity = '1';
-                item.style.transform = 'translateX(0)';
-            }, 800 + index * 200);
+                el.style.transition = 'opacity 0.35s ease';
+                el.style.opacity = '1';
+            }, i * 60);
         });
     }
     
@@ -380,13 +352,13 @@ class ModernWebsite {
         const projectCards = document.querySelectorAll('.project-card:not(.loading)');
         projectCards.forEach((card, index) => {
             card.style.opacity = '0';
-            card.style.transform = 'translateY(50px) scale(0.9)';
+            card.style.transform = 'translateY(15px)';
             
             setTimeout(() => {
-                card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                card.style.transition = 'all 0.4s ease';
                 card.style.opacity = '1';
-                card.style.transform = 'translateY(0) scale(1)';
-            }, index * 150);
+                card.style.transform = 'translateY(0)';
+            }, index * 100);
         });
     }
     
@@ -394,13 +366,11 @@ class ModernWebsite {
         const contactItems = document.querySelectorAll('.contact-item');
         contactItems.forEach((item, index) => {
             item.style.opacity = '0';
-            item.style.transform = 'translateX(-30px)';
             
             setTimeout(() => {
-                item.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                item.style.transition = 'opacity 0.4s ease';
                 item.style.opacity = '1';
-                item.style.transform = 'translateX(0)';
-            }, index * 200);
+            }, index * 100);
         });
     }
     
@@ -464,6 +434,19 @@ function nextSlide() {
 function previousSlide() {
     if (window.modernWebsite) {
         window.modernWebsite.previousSlide();
+    }
+}
+
+function toggleLanguage() {
+    const body = document.body;
+    if (body.classList.contains('en-mode')) {
+        body.classList.remove('en-mode');
+        body.classList.add('zh-mode');
+        localStorage.setItem('lang', 'zh');
+    } else {
+        body.classList.remove('zh-mode');
+        body.classList.add('en-mode');
+        localStorage.setItem('lang', 'en');
     }
 }
 
@@ -585,58 +568,53 @@ document.addEventListener('DOMContentLoaded', () => {
     window.modernWebsite = new ModernWebsite();
     setupProjectFilters();
     
-    // 添加一些额外的样式
     const style = document.createElement('style');
     style.innerHTML = `
         .preview-content {
             text-align: left;
             color: var(--text-color);
         }
-        
         .preview-content h4 {
             color: var(--primary-color);
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
         }
-        
         .preview-content p {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.35rem;
             color: var(--text-secondary);
-        }
-        
-        .preview-note {
-            font-style: italic;
-            color: var(--accent-color) !important;
-            margin-top: 1rem;
             font-size: 0.9rem;
         }
-        
+        .preview-note {
+            font-style: italic;
+            color: var(--text-light) !important;
+            margin-top: 0.75rem;
+            font-size: 0.8rem;
+        }
         .friend-link {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 15px;
-            padding: 1.5rem;
-            backdrop-filter: blur(10px);
-            transition: var(--transition-fast);
+            border-radius: 6px;
+            padding: 1.25rem;
+            transition: all 0.25s ease;
         }
-        
         .friend-link:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-card);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
-        
         .friend-link h4 {
             color: var(--text-color);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.35rem;
+            font-size: 0.95rem;
         }
-        
         .friend-link p {
             color: var(--text-secondary);
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.85rem;
         }
-        
         .friend-link a {
             color: var(--primary-color);
             text-decoration: none;
+            font-size: 0.85rem;
         }
     `;
     document.head.appendChild(style);

@@ -3,384 +3,273 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Passwerob - 个人网站</title>
+    <title>Yingtao Li (李英韬) - DUT</title>
+    <meta name="description" content="Yingtao Li (李英韬), undergraduate at Dalian University of Technology. Research: 3D Gaussian Splatting, Computer Vision, Style Transfer.">
     <link rel="stylesheet" href="css/modern-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-    <!-- 导航栏 -->
+<body class="en-mode">
+    <script>
+        (function() {
+            const savedLang = localStorage.getItem('lang') || 'en';
+            document.body.className = savedLang + '-mode';
+        })();
+    </script>
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <span class="logo-text">Passwerob</span>
+                <span class="logo-text">Yingtao Li</span>
             </div>
             <div class="nav-menu" id="nav-menu">
-                <a href="#home" class="nav-link active" data-section="0">主页</a>
-                <a href="#about" class="nav-link" data-section="1">关于</a>
-                <a href="#deep-learning" class="nav-link" data-section="2">深度学习笔记</a>
-                <a href="#learning-progress" class="nav-link" data-section="3">学习进度</a>
-                <a href="#projects" class="nav-link" data-section="4">个人项目</a>
-                <a href="#contact" class="nav-link" data-section="5">联系</a>
+                <a href="#home" class="nav-link active" data-section="0"><span class="en">Home</span><span class="zh">首页</span></a>
+                <a href="#publications" class="nav-link" data-section="1"><span class="en">Publications</span><span class="zh">发表论文</span></a>
+                <a href="#research" class="nav-link" data-section="2"><span class="en">Research</span><span class="zh">研究方向</span></a>
+                <a href="#honors" class="nav-link" data-section="3"><span class="en">Honors</span><span class="zh">荣誉与技能</span></a>
+                <a href="#contact" class="nav-link" data-section="4"><span class="en">Contact</span><span class="zh">联系方式</span></a>
             </div>
-            <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <div class="nav-controls">
+                <button class="lang-toggle" onclick="toggleLanguage()">
+                    <i class="fas fa-language"></i>
+                    <span class="en">中文</span><span class="zh">English</span>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- 滑动容器 -->
     <div class="slider-container" id="slider-container">
-        
-        <!-- 主页面 -->
+
+        <!-- ===== HOME ===== -->
         <section class="slide active" id="home">
             <div class="slide-content">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <h1 class="hero-title">
-                            <span class="title-line">欢迎来到</span>
-                            <span class="title-line highlight">Passwerob</span>
-                            <span class="title-line">的世界</span>
+                <div class="home-layout">
+                    <div class="home-photo">
+                        <img src="images/photo.jpg" alt="Yingtao Li">
+                    </div>
+                    <div class="home-info">
+                        <h1 class="home-name">
+                            <span class="en">Yingtao Li</span><span class="zh">李英韬</span>
+                            <span class="home-name-cn en">李英韬</span>
                         </h1>
-                        <p class="hero-subtitle">一个专注于深度学习的个人空间</p>
-                        <div class="hero-buttons">
-                            <button class="btn btn-primary" onclick="navigateToSlide(2)">
-                                <i class="fas fa-brain"></i>
-                                探索笔记
-                            </button>
-                            <button class="btn btn-secondary" onclick="navigateToSlide(3)">
-                                <i class="fab fa-github"></i>
-                                查看项目
-                            </button>
+                        <p class="home-affiliation">
+                            <span class="en">Undergraduate Student, School of Artificial Intelligence<br>Dalian University of Technology</span>
+                            <span class="zh">大连理工大学 人工智能学院<br>本科生</span>
+                        </p>
+                        <p class="home-bio">
+                            <span class="en">I am a junior undergraduate majoring in AI at DUT (GPA 3.9/5.0, rank 11/312). My research interests focus on <strong>3D Gaussian Splatting</strong>, <strong>Computer Vision</strong>, and <strong>Image Style Transfer</strong>. I have one paper accepted at <strong>CVPR 2026</strong> and one under review at <strong>IEEE T-CSVT</strong>.</span>
+                            <span class="zh">我是大连理工大学人工智能专业的本科三年级学生（GPA 3.9/5.0，专业排名 11/312）。我的研究兴趣集中在<strong>3D高斯溅射（3DGS）</strong>、<strong>计算机视觉</strong>和<strong>图像风格迁移</strong>。目前我有一篇论文被 <strong>CVPR 2026</strong> 接收，另一篇在 <strong>IEEE T-CSVT</strong> 审稿中。</span>
+                        </p>
+
+                        <div class="home-links">
+                            <a href="mailto:yingtaoli38@gmail.com" class="home-link-item"><i class="fas fa-envelope"></i> <span class="en">Email</span><span class="zh">邮箱</span></a>
+                            <a href="https://github.com/Passwerob" target="_blank" class="home-link-item"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="https://blog.csdn.net/2401_86810419" target="_blank" class="home-link-item"><i class="fas fa-blog"></i> CSDN</a>
                         </div>
-                    </div>
-                    <div class="hero-visual">
-                        <div class="floating-elements">
-                            <div class="float-element" style="--delay: 0s;">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <div class="float-element" style="--delay: 0.5s;">
-                                <i class="fas fa-robot"></i>
-                            </div>
-                            <div class="float-element" style="--delay: 1s;">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <div class="float-element" style="--delay: 1.5s;">
-                                <i class="fas fa-lightbulb"></i>
-                            </div>
+
+                        <div class="home-news">
+                            <h3><span class="en">News</span><span class="zh">最新动态</span></h3>
+                            <ul>
+                                <li><span class="news-date">2026</span> <span class="en">One paper accepted at <strong>CVPR 2026</strong>.</span><span class="zh">一篇关于风格迁移的论文被 <strong>CVPR 2026</strong> 接收。</span></li>
+                                <li><span class="news-date">2025</span> <span class="en">One paper submitted to <strong>IEEE T-CSVT</strong>.</span><span class="zh">一篇关于 3DGS 的论文投递至 <strong>IEEE T-CSVT</strong> 审稿中。</span></li>
+                                <li><span class="news-date">2025</span> <span class="en">Awarded <strong>National Scholarship</strong>.</span><span class="zh">荣获 <strong>国家奖学金</strong>。</span></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 关于页面 -->
-        <section class="slide" id="about">
+        <!-- ===== PUBLICATIONS ===== -->
+        <section class="slide" id="publications">
             <div class="slide-content">
-                <div class="about-container">
-                    <div class="section-header">
-                        <h2 class="section-title">关于我</h2>
-                        <div class="section-underline"></div>
-                    </div>
-                    <div class="about-grid">
-                        <div class="about-text">
-                            <p class="about-intro">你好！我是 Passwerob，一名热衷于深度学习的学习者。</p>
-                            <p>在这个数字化时代，我致力于探索深度学习的前沿技术，分享学习心得，并创造有价值的项目。希望可以不断学习，不断进步，变为更好的自己。</p>
-                            <p class="location-info">📍 中国~大连</p>
-                            <div class="skills-cloud">
-                                <span class="skill-tag">Python</span>
-                                <span class="skill-tag">TensorFlow</span>
-                                <span class="skill-tag">PyTorch</span>
-                                <span class="skill-tag">深度学习</span>
-                                <span class="skill-tag">计算机视觉</span>
-                                <span class="skill-tag">自然语言处理</span>
-                                <span class="skill-tag">机器学习</span>
-                                <span class="skill-tag">数据科学</span>
-                            </div>
+                <div class="section-header">
+                    <h2 class="section-title"><span class="en">Publications</span><span class="zh">发表论文</span></h2>
+                </div>
+
+                <div class="pub-list">
+                    <div class="pub-item">
+                        <div class="pub-badge pub-accept"><span class="en">CVPR 2026</span><span class="zh">CVPR 2026</span></div>
+                        <div class="pub-body">
+                            <h3 class="pub-title">Style-GRPO: Semantic-Aware Preference Optimization for Image Style Transfer Guided by Reward Modeling</h3>
+                            <p class="pub-venue">
+                                <span class="en">IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026 &mdash; <strong>Accepted</strong></span>
+                                <span class="zh">IEEE/CVF 计算机视觉与模式识别会议 (CVPR), 2026 &mdash; <strong>已接收</strong></span>
+                            </p>
+                            <p class="pub-desc">
+                                <span class="en">A reward-model-guided preference optimization framework for semantically coherent image style transfer.</span>
+                                <span class="zh">一种基于奖励模型引导的语义感知图像风格迁移偏好优化框架。</span>
+                            </p>
                         </div>
-                        <div class="about-stats">
-                            <div class="stat-item">
-                                <div class="stat-number">20+</div>
-                                <div class="stat-label">学习笔记</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">5+</div>
-                                <div class="stat-label">开源项目</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">1年+</div>
-                                <div class="stat-label">深度学习经验</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">持续更新</div>
-                                <div class="stat-label">发表文章</div>
-                            </div>
+                    </div>
+
+                    <div class="pub-item">
+                        <div class="pub-badge pub-review"><span class="en">Under Review</span><span class="zh">在投</span></div>
+                        <div class="pub-body">
+                            <h3 class="pub-title">Breaking the Vicious Cycle: Coherent 3D Gaussian Splatting from Sparse and Motion-Blurred Views</h3>
+                            <p class="pub-venue">
+                                <span class="en">IEEE Transactions on Circuits and Systems for Video Technology (T-CSVT) &mdash; <em>Under Review</em></span>
+                                <span class="zh">IEEE 视频技术电路与系统汇刊 (T-CSVT) &mdash; <em>审稿中</em></span>
+                            </p>
+                            <p class="pub-desc">
+                                <span class="en">Addressing sparse-view and motion-blur degradation in 3D Gaussian Splatting for coherent novel-view synthesis.</span>
+                                <span class="zh">解决3DGS在稀疏视角和运动模糊下的退化问题，实现连贯的新视角合成。</span>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 深度学习笔记页面 -->
-        <section class="slide" id="deep-learning">
+        <!-- ===== RESEARCH ===== -->
+        <section class="slide" id="research">
             <div class="slide-content">
-                <div class="notes-container">
-                    <div class="section-header">
-                        <h2 class="section-title">深度学习笔记</h2>
-                        <div class="section-underline"></div>
-                    </div>
-                    <div class="notes-grid">
-                        <div class="note-card feishu-notes">
-                            <div class="card-icon">
-                                <i class="fas fa-file-alt"></i>
-                            </div>
-                            <h3>飞书文档</h3>
-                            <p>详细的深度学习理论笔记和实践经验</p>
-                            <div class="card-preview" id="feishu-preview">
-                                <div class="preview-placeholder">
-                                    <i class="fas fa-eye"></i>
-                                    <span>点击预览内容</span>
-                                </div>
-                            </div>
-                            <div class="card-buttons">
-                                <button class="btn btn-outline" onclick="previewFeishu()">预览</button>
-                                <button class="btn btn-primary" onclick="openFeishu()">访问文档</button>
-                            </div>
-                        </div>
-                        <div class="note-card csdn-notes">
-                            <div class="card-icon">
-                                <i class="fab fa-blogger"></i>
-                            </div>
-                            <h3>CSDN 博客</h3>
-                            <p>技术文章和项目分享</p>
-                            <div class="card-preview" id="csdn-preview">
-                                <div class="preview-placeholder">
-                                    <i class="fas fa-eye"></i>
-                                    <span>点击预览内容</span>
-                                </div>
-                            </div>
-                            <div class="card-buttons">
-                                <button class="btn btn-outline" onclick="previewCSDN()">预览</button>
-                                <button class="btn btn-primary" onclick="openCSDN()">访问博客</button>
-                            </div>
+                <div class="section-header">
+                    <h2 class="section-title"><span class="en">Research</span><span class="zh">研究方向</span></h2>
+                </div>
+
+                <div class="research-grid">
+                    <div class="research-card">
+                        <div class="research-status status-ongoing"><span class="en">Ongoing</span><span class="zh">进行中</span></div>
+                        <h3>3D EventVGGT / StreamVGGT</h3>
+                        <p class="en">Fusing RGB and Event camera data for robust 3D reconstruction. StreamVGGT employs Cross-Attention with RGB tokens as Query and Event tokens as Key/Value, supporting real and simulated domains. Achieves ~20% improvement over baselines on 15 SIM/REAL benchmarks.</p>
+                        <p class="zh">融合RGB和事件相机数据进行鲁棒的三维重建。StreamVGGT采用交叉注意力机制，以RGB token为Query，Event token为Key/Value，支持真实和模拟域。在15个基准测试中比基线提升约20%。</p>
+                        <div class="research-tags">
+                            <span>Event Camera</span>
+                            <span>Cross-Attention</span>
+                            <span>3D Reconstruction</span>
                         </div>
                     </div>
-                    <div class="notes-timeline">
-                        <h3>学习进度</h3>
-                        <div class="timeline">
-                            <div class="timeline-item">
-                                <div class="timeline-marker"></div>
-                                <div class="timeline-content">
-                                    <h4>神经网络基础</h4>
-                                    <p>完成基础理论学习</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-marker"></div>
-                                <div class="timeline-content">
-                                    <h4>卷积神经网络</h4>
-                                    <p>CNN结构与应用</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-marker"></div>
-                                <div class="timeline-content">
-                                    <h4>循环神经网络</h4>
-                                    <p>RNN、LSTM、GRU</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-marker"></div>
-                                <div class="timeline-content">
-                                    <h4>Transformer</h4>
-                                    <p>注意力机制与现代NLP</p>
-                                </div>
-                            </div>
+
+                    <div class="research-card">
+                        <div class="research-status status-ongoing"><span class="en">Ongoing</span><span class="zh">进行中</span></div>
+                        <h3>Differentiable Compatibility Prior (DCP)</h3>
+                        <p class="en">Exploring differentiable priors for improving compatibility and consistency in 3D vision tasks.</p>
+                        <p class="zh">探索可微先验以改善3D视觉任务中的兼容性和一致性。</p>
+                        <div class="research-tags">
+                            <span>Differentiable Rendering</span>
+                            <span>3D Vision</span>
+                        </div>
+                    </div>
+
+                    <div class="research-card">
+                        <div class="research-status status-done"><span class="en">Published</span><span class="zh">已发表</span></div>
+                        <h3>Style-GRPO</h3>
+                        <p class="en">Semantic-aware preference optimization for image style transfer using reward modeling. Accepted at CVPR 2026.</p>
+                        <p class="zh">基于奖励模型的语义感知图像风格迁移偏好优化。被 CVPR 2026 接收。</p>
+                        <div class="research-tags">
+                            <span>Style Transfer</span>
+                            <span>GRPO</span>
+                            <span>Reward Modeling</span>
+                        </div>
+                    </div>
+
+                    <div class="research-card">
+                        <div class="research-status status-review"><span class="en">Under Review</span><span class="zh">在投</span></div>
+                        <h3>Coherent 3DGS from Degraded Views</h3>
+                        <p class="en">Breaking the vicious cycle of sparse and motion-blurred inputs in 3D Gaussian Splatting. Submitted to IEEE T-CSVT.</p>
+                        <p class="zh">打破3DGS中稀疏和运动模糊输入的恶性循环。已投递至 IEEE T-CSVT。</p>
+                        <div class="research-tags">
+                            <span>3D Gaussian Splatting</span>
+                            <span>Motion Blur</span>
+                            <span>Sparse View</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 学习进度页面 -->
-        <section class="slide" id="learning-progress">
+        <!-- ===== HONORS ===== -->
+        <section class="slide" id="honors">
             <div class="slide-content">
-                <div class="learning-progress-container">
-                    <div class="section-header">
-                        <h2 class="section-title">学习进度</h2>
-                        <div class="section-underline"></div>
-                    </div>
-                    
-                    <!-- 进度仪表板 -->
-                    <div class="progress-dashboard">
-                        <div class="progress-overview">
-                            <div class="overview-card">
-                                <div class="overview-icon">
-                                    <i class="fas fa-graduation-cap"></i>
-                                </div>
-                                <div class="overview-content">
-                                    <h3>总体进度</h3>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 75%"></div>
-                                    </div>
-                                    <span class="progress-text">going</span>
-                                </div>
+                <div class="section-header">
+                    <h2 class="section-title"><span class="en">Honors &amp; Skills</span><span class="zh">荣誉与技能</span></h2>
+                </div>
+
+                <div class="honors-skills-layout">
+                    <div class="honors-section">
+                        <h3><span class="en">Awards &amp; Honors</span><span class="zh">荣誉奖项</span></h3>
+                        <ul class="honors-list">
+                            <li>
+                                <span class="honor-year">2025</span>
+                                <span class="honor-name"><span class="en">National Scholarship</span><span class="zh">国家奖学金</span></span>
+                            </li>
+                            <li>
+                                <span class="honor-year">2025</span>
+                                <span class="honor-name"><span class="en">GPA 3.9/5.0, Rank 11/312</span><span class="zh">GPA 3.9/5.0, 专业排名 11/312</span></span>
+                            </li>
+                            <li>
+                                <span class="honor-year">2026</span>
+                                <span class="honor-name"><span class="en">CVPR 2026 Paper Accepted</span><span class="zh">CVPR 2026 论文接收</span></span>
+                            </li>
+                        </ul>
+
+                        <h3><span class="en">Education</span><span class="zh">教育背景</span></h3>
+                        <div class="edu-item">
+                            <div class="edu-logo">
+                                <i class="fas fa-university"></i>
                             </div>
-                            
-                            <div class="overview-card">
-                                <div class="overview-icon">
-                                    <i class="fas fa-brain"></i>
+                            <div class="edu-content">
+                                <div class="edu-header">
+                                    <strong><span class="en">Dalian University of Technology</span><span class="zh">大连理工大学</span></strong>
+                                    <span class="edu-time"><span class="en">2024 &ndash; Present</span><span class="zh">2024 &ndash; 至今</span></span>
                                 </div>
-                                <div class="overview-content">
-                                    <h3>深度学习</h3>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 30%"></div>
+                                <div class="edu-degree"><span class="en">B.Eng. in Artificial Intelligence</span><span class="zh">人工智能专业 工学学士</span></div>
+                                <div class="edu-details">
+                                    <div class="edu-detail-row">
+                                        <span class="en"><strong>GPA:</strong> 3.9/5.0</span><span class="zh"><strong>GPA:</strong> 3.9/5.0</span>
+                                        <span class="separator">|</span>
+                                        <span class="en"><strong>Rank:</strong> 11/312</span><span class="zh"><strong>排名:</strong> 11/312</span>
                                     </div>
-                                    <span class="progress-text">diving into...</span>
-                                </div>
-                            </div>
-                            
-                            <div class="overview-card">
-                                <div class="overview-icon">
-                                    <i class="fas fa-code"></i>
-                                </div>
-                                <div class="overview-content">
-                                    <h3>实践项目</h3>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 60%"></div>
+                                    <div class="edu-detail-row">
+                                        <span class="en"><strong>Key courses:</strong> Python (98), Linear Algebra (97), Probability &amp; Statistics (94), Signal Processing (92)</span>
+                                        <span class="zh"><strong>核心课程:</strong> Python (98), 线性代数 (97), 概率论与数理统计 (94), 信号与系统 (92)</span>
                                     </div>
-                                    <span class="progress-text">2 completed etc.</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- 详细学习路径 -->
-                    <div class="learning-path">
-                        <h3>学习路径</h3>
-                        <div class="path-grid">
-                            <div class="path-stage completed">
-                                <div class="stage-header">
-                                    <div class="stage-icon">
-                                        <i class="fas fa-check"></i>
-                                    </div>
-                                    <h4>基础知识</h4>
-                                    <span class="stage-progress">100%</span>
-                                </div>
-                                <div class="stage-content">
-                                    <ul class="topic-list">
-                                        <li class="completed">Python 基础</li>
-                                        <li class="completed">数据结构与算法</li>
-                                        <li class="completed">线性代数</li>
-                                        <li class="completed">统计学基础</li>
-                                    </ul>
+
+                    <div class="skills-section">
+                        <h3><span class="en">Technical Skills</span><span class="zh">技术栈</span></h3>
+                        <div class="skills-grouped">
+                            <div class="skill-group">
+                                <h4><span class="en">Languages</span><span class="zh">编程语言</span></h4>
+                                <div class="skill-tags">
+                                    <span>Python</span>
+                                    <span>C/C++</span>
+                                    <span>MATLAB</span>
+                                    <span>LaTeX</span>
                                 </div>
                             </div>
-                            
-                            <div class="path-stage in-progress">
-                                <div class="stage-header">
-                                    <div class="stage-icon">
-                                        <i class="fas fa-play"></i>
-                                    </div>
-                                    <h4>深度学习核心</h4>
-                                    <span class="stage-progress">75%</span>
-                                </div>
-                                <div class="stage-content">
-                                    <ul class="topic-list">
-                                        <li class="completed">神经网络基础</li>
-                                        <li class="completed">卷积神经网络</li>
-                                        <li class="completed">循环神经网络</li>
-                                        <li class="completed">生成对抗网络</li>
-                                        <li class="completed">Transformer 架构</li>
-                                        <li class="completed">Vision Transformer</li>
-                                        <li class="in-progress">DiC:Rethinking...  (CVPR 2025)</li>
-                                        <li class="pending">VGGT (CVPR 2025 best paper)</li>
-                                    </ul>
+                            <div class="skill-group">
+                                <h4><span class="en">Frameworks</span><span class="zh">深度学习框架</span></h4>
+                                <div class="skill-tags">
+                                    <span>PyTorch</span>
+                                    <span>Hydra</span>
+                                    <span>Accelerate</span>
+                                    <span>DDP / FSDP</span>
                                 </div>
                             </div>
-                            
-                            <div class="path-stage pending">
-                                <div class="stage-header">
-                                    <div class="stage-icon">
-                                        <i class="fas fa-clock"></i>
-                                    </div>
-                                    <h4>高级应用</h4>
-                                    <span class="stage-progress">20%</span>
-                                </div>
-                                <div class="stage-content">
-                                    <ul class="topic-list">
-                                        <li class="in-progress">计算机视觉</li>
-                                        <li class="in-progress">自然语言处理</li> 
-                                        <li class="in-progress">模型优化</li>
-                                        <li class="pending">强化学习</li>
-                                       
-                                    </ul>
+                            <div class="skill-group">
+                                <h4><span class="en">Architectures</span><span class="zh">模型架构</span></h4>
+                                <div class="skill-tags">
+                                    <span>Transformer</span>
+                                    <span>Cross-Attention</span>
+                                    <span>3D Gaussian Splatting</span>
+                                    <span>Voxelization</span>
                                 </div>
                             </div>
-                            
-                            <div class="path-stage pending">
-                                <div class="stage-header">
-                                    <div class="stage-icon">
-                                        <i class="fas fa-rocket"></i>
-                                    </div>
-                                    <h4>实战项目</h4>
-                                    <span class="stage-progress">30%</span>
-                                </div>
-                                <div class="stage-content">
-                                    <ul class="topic-list">
-                                        <li class="completed">图像分类项目</li>
-                                        <li class="in-progress">3DGS etc.</li>
-                                        <li class="pending">推荐系统</li>
-                                        <li class="pending">端到端部署</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- 学习统计 -->
-                    <div class="learning-stats">
-                        <h3>学习统计</h3>
-                        <div class="stats-grid">
-                            <div class="stat-card">
-                                <div class="stat-icon">
-                                    <i class="fas fa-calendar-alt"></i>
-                                </div>
-                                <div class="stat-info">
-                                    <span class="stat-number">300+</span>
-                                    <span class="stat-label">学习天数</span>
-                                </div>
-                            </div>
-                            
-                            <div class="stat-card">
-                                <div class="stat-icon">
-                                    <i class="fas fa-book-open"></i>
-                                </div>
-                                <div class="stat-info">
-                                    <span class="stat-number">15+</span>
-                                    <span class="stat-label">完成课程</span>
-                                </div>
-                            </div>
-                            
-                            <div class="stat-card">
-                                <div class="stat-icon">
-                                    <i class="fas fa-trophy"></i>
-                                </div>
-                                <div class="stat-info">
-                                    <span class="stat-number">6</span>
-                                    <span class="stat-label">项目完成</span>
-                                </div>
-                            </div>
-                            
-                            <div class="stat-card">
-                                <div class="stat-icon">
-                                    <i class="fas fa-fire"></i>
-                                </div>
-                                <div class="stat-info">
-                                    <span class="stat-number">100+</span>
-                                    <span class="stat-label">连续学习</span>
+                            <div class="skill-group">
+                                <h4><span class="en">Tools</span><span class="zh">开发工具</span></h4>
+                                <div class="skill-tags">
+                                    <span>Linux</span>
+                                    <span>Git / GitHub</span>
+                                    <span>tmux</span>
+                                    <span>Docker</span>
                                 </div>
                             </div>
                         </div>
@@ -389,63 +278,33 @@
             </div>
         </section>
 
-        <!-- 个人项目页面 -->
-        <section class="slide" id="projects">
-            <div class="slide-content">
-                <div class="projects-container">
-                    <div class="section-header">
-                        <h2 class="section-title">个人项目</h2>
-                        <div class="section-underline"></div>
-                    </div>
-                    <div class="projects-grid" id="projects-grid">
-                        <!-- 项目将通过 JavaScript 动态加载 -->
-                        <div class="project-card loading">
-                            <div class="loading-spinner"></div>
-                            <p>正在加载 GitHub 项目...</p>
-                        </div>
-                    </div>
-                    <div class="projects-filter">
-                        <button class="filter-btn active" data-filter="all">全部</button>
-                        <button class="filter-btn" data-filter="javascript">JavaScript</button>
-                        <button class="filter-btn" data-filter="python">Python</button>
-                        <button class="filter-btn" data-filter="machine-learning">机器学习</button>
-                        <button class="filter-btn" data-filter="web">Web开发</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 联系页面 -->
+        <!-- ===== CONTACT ===== -->
         <section class="slide" id="contact">
             <div class="slide-content">
-                <div class="contact-container">
-                    <div class="section-header">
-                        <h2 class="section-title">联系我</h2>
-                        <div class="section-underline"></div>
-                    </div>
-                    <div class="contact-grid">
-                        <div class="contact-info">
-                            <div class="contact-item">
-                                <i class="fab fa-github"></i>
-                                <span>GitHub</span>
-                                <a href="#" target="_blank">@passwerob</a>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-envelope"></i>
-                                <span>邮箱</span>
-                                <a href="mailto:contact@passwerob.com">contact@passwerob.com</a>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-blog"></i>
-                                <span>CSDN</span>
-                                <a href="#" target="_blank">Passwerob</a>
-                            </div>
+                <div class="section-header">
+                    <h2 class="section-title"><span class="en">Contact</span><span class="zh">联系方式</span></h2>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span><span class="en">Email</span><span class="zh">邮箱</span></span>
+                            <a href="mailto:yingtaoli38@gmail.com">yingtaoli38@gmail.com</a>
                         </div>
-                        <div class="friends-links">
-                            <h3>友情链接</h3>
-                            <div class="friends-grid" id="friends-grid">
-                                <!-- 友情链接区域，为朋友网站预留 -->
-                            </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span><span class="en">Phone</span><span class="zh">电话</span></span>
+                            <a href="tel:+8613591760428">135-9176-0428</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                            <a href="https://github.com/Passwerob" target="_blank">@Passwerob</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-blog"></i>
+                            <span>CSDN</span>
+                            <a href="https://blog.csdn.net/2401_86810419" target="_blank">Passwerob</a>
                         </div>
                     </div>
                 </div>
@@ -453,17 +312,14 @@
         </section>
     </div>
 
-    <!-- 侧边导航指示器 -->
     <div class="slide-indicators">
         <div class="indicator active" data-slide="0"></div>
         <div class="indicator" data-slide="1"></div>
         <div class="indicator" data-slide="2"></div>
         <div class="indicator" data-slide="3"></div>
         <div class="indicator" data-slide="4"></div>
-        <div class="indicator" data-slide="5"></div>
     </div>
 
-    <!-- 滚动箭头 -->
     <div class="scroll-arrows">
         <button class="arrow-btn prev-slide" onclick="previousSlide()">
             <i class="fas fa-chevron-up"></i>
@@ -473,7 +329,6 @@
         </button>
     </div>
 
-    <!-- 背景粒子效果 -->
     <div class="particles" id="particles"></div>
 
     <script src="js/config.js"></script>
@@ -481,4 +336,4 @@
     <script src="js/github-api.js"></script>
     <script src="js/particles.js"></script>
 </body>
-</html> 
+</html>

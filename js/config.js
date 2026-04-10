@@ -3,12 +3,12 @@
 const WEBSITE_CONFIG = {
     // 个人信息
     personal: {
-        name: 'Passwerob',
-        title: '深度学习与人工智能学习者',
-        description: '一个专注于深度学习的个人空间',
+        name: 'Yingtao Li',
+        title: 'Undergraduate Student | Dalian University of Technology',
+        description: 'Interested in Deep Learning, Computer Vision & 3D Reconstruction',
         email: 'yingtaoli38@gmail.com',
-        location: '中国~大连',
-        avatar: '', // 可以添加头像图片URL
+        location: 'Dalian, China',
+        avatar: '',
     },
     
     // 社交媒体链接
@@ -76,29 +76,18 @@ const WEBSITE_CONFIG = {
         apiToken: '' // 可选：GitHub API token（用于访问私有仓库或提高API限制）
     },
     
-    // 技能标签
     skills: [
-        'Python',
-        'TensorFlow',
-        'PyTorch',
-        '深度学习',
-        '计算机视觉',
-        '自然语言处理',
-        '机器学习',
-        '数据科学',
-        'JavaScript',
-        'Web开发',
-        'React',
-        'Vue.js',
-        'Node.js'
+        'Python', 'C/C++', 'MATLAB', 'LaTeX',
+        'PyTorch', 'Hydra', 'Accelerate', 'DDP/FSDP',
+        'Transformer', 'Cross-Attention', '3D Gaussian Splatting',
+        'Linux', 'Git/GitHub', 'tmux'
     ],
     
-    // 统计数据
     stats: {
-        notes: '20+',
+        papers: '2',
         projects: '5+',
-        experience: '1年+',
-        publications: '持续更新' // 可选：发表文章数
+        gpa: '3.9/5.0',
+        rank: '11/312'
     },
     
     // 学习进度时间线
@@ -144,12 +133,12 @@ const WEBSITE_CONFIG = {
     
     // 网站主题配置
     theme: {
-        primaryColor: '#667eea',
-        secondaryColor: '#764ba2',
-        accentColor: '#4facfe',
-        darkMode: true, // 是否默认使用暗色模式
-        particlesEnabled: true, // 是否启用粒子背景效果
-        animationsEnabled: true // 是否启用动画效果
+        primaryColor: '#1a365d',
+        secondaryColor: '#2c5282',
+        accentColor: '#b7312c',
+        darkMode: false,
+        particlesEnabled: false,
+        animationsEnabled: true
     },
     
     // 页面配置
@@ -178,12 +167,12 @@ const WEBSITE_CONFIG = {
     
     // SEO配置
     seo: {
-        title: 'Passwerob - 深度学习与AI开发者',
-        description: 'Passwerob的个人网站，专注于深度学习、机器学习和人工智能技术分享',
-        keywords: '深度学习,机器学习,人工智能,PyTorch,TensorFlow,Python,Passwerob',
-        author: 'Passwerob',
-        ogImage: '', // Open Graph图片URL
-        favicon: '' // 网站图标URL
+        title: 'Yingtao Li - DUT | Deep Learning & Computer Vision',
+        description: 'Personal academic page of Yingtao Li (李英韬), undergraduate at Dalian University of Technology. Research interests: deep learning, computer vision, 3D reconstruction.',
+        keywords: 'Yingtao Li,李英韬,Deep Learning,Computer Vision,3D Gaussian Splatting,DUT,大连理工大学,PyTorch',
+        author: 'Yingtao Li',
+        ogImage: '',
+        favicon: ''
     },
     
     // 网站功能开关
@@ -251,28 +240,11 @@ function updateOrCreateMeta(name, content) {
 }
 
 function updatePersonalInfo() {
-    const { name, title, description } = WEBSITE_CONFIG.personal;
+    const { name } = WEBSITE_CONFIG.personal;
     
-    // 更新logo
     const logoElement = document.querySelector('.logo-text');
     if (logoElement) {
         logoElement.textContent = name;
-    }
-    
-    // 更新主页标题
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        heroTitle.innerHTML = `
-            <span class="title-line">欢迎来到</span>
-            <span class="title-line highlight">${name}</span>
-            <span class="title-line">的世界</span>
-        `;
-    }
-    
-    // 更新副标题
-    const heroSubtitle = document.querySelector('.hero-subtitle');
-    if (heroSubtitle) {
-        heroSubtitle.textContent = description;
     }
 }
 
