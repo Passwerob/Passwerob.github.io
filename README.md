@@ -1,22 +1,14 @@
-# Passwerob 个人网站
+# Yingtao Li Personal Website
 
-个人网站，采用滑动窗口设计
+Static personal website and blog for Yingtao Li.
 
+## Structure
 
-## 📄 许可证
+- `index.html`: personal homepage
+- `blog/`: blog posts organized by publication date
+- `css/site.css`: shared site and article styles
+- `js/site.js`: language switcher, mobile navigation, reveal effects, blog sorting and filtering
+- `images/`: site images
+- `assets/fonts/`: self-hosted fonts and licenses
 
-MIT License - 可自由使用和修改
-
-## 🤝 贡献
-
-欢迎提交Issue和Pull Request来改进这个项目！
-
-## 📞 联系方式
-
-如有问题，请通过以下方式联系：
-
-- GitHub: [@passwerob](https://github.com/passwerob)
-- Email: contact@passwerob.com
-- CSDN: [Passwerob](https://blog.csdn.net/passwerob)
-
----
+The project uses plain HTML, CSS and JavaScript and can be deployed directly with GitHub Pages.
