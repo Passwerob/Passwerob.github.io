@@ -1,57 +1,44 @@
 const body = document.body;
-const languageButton = document.querySelector('.language-button');
-const menuButton = document.querySelector('.menu-button');
-const nav = document.querySelector('#site-nav');
+const languageToggle = document.querySelector('#language-toggle');
 
 const setLanguage = (language) => {
   const english = language === 'en';
   body.classList.toggle('english', english);
   document.documentElement.lang = english ? 'en' : 'zh-CN';
-  languageButton.textContent = english ? '中' : 'EN';
-  localStorage.setItem('language', language);
+  if (languageToggle) {
+    languageToggle.textContent = english ? '中' : 'EN';
+    languageToggle.setAttribute('aria-label', english ? 'Switch to Chinese' : '切换中英文');
+  }
+  try {
+    localStorage.setItem('language', language);
+  } catch (error) {
+    // Storage can be unavailable in private browsing.
+  }
 };
 
-setLanguage(localStorage.getItem('language') || 'zh');
-languageButton.addEventListener('click', () => setLanguage(body.classList.contains('english') ? 'zh' : 'en'));
+let savedLanguage = 'zh';
+try {
+  savedLanguage = localStorage.getItem('language') || 'zh';
+} catch (error) {
+  savedLanguage = 'zh';
+}
+setLanguage(savedLanguage);
 
-menuButton.addEventListener('click', () => {
-  const open = nav.classList.toggle('open');
-  menuButton.setAttribute('aria-expanded', String(open));
+languageToggle?.addEventListener('click', () => {
+  setLanguage(body.classList.contains('english') ? 'zh' : 'en');
 });
 
-nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
-  nav.classList.remove('open');
-  menuButton.setAttribute('aria-expanded', 'false');
-}));
+const year = document.querySelector('#year');
+if (year) year.textContent = String(new Date().getFullYear());
 
-document.querySelector('#year').textContent = new Date().getFullYear();
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
+const noteFilters = document.querySelectorAll('.note-filter');
+const noteEntries = document.querySelectorAll('.note-entry[data-category]');
+noteFilters.forEach((button) => {
+  button.addEventListener('click', () => {
+    const filter = button.dataset.filter || 'all';
+    noteFilters.forEach((item) => item.classList.toggle('active', item === button));
+    noteEntries.forEach((entry) => {
+      entry.hidden = filter !== 'all' && entry.dataset.category !== filter;
+    });
   });
-}, { threshold: 0.12 });
-
-document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
-
-const blogFilters = document.querySelectorAll('.blog-filter');
-const blogEntries = document.querySelectorAll('.blog-entry[data-categories]');
-const blogTimeline = document.querySelector('.blog-timeline');
-
-if (blogTimeline) {
-  [...blogEntries]
-    .sort((a, b) => new Date(b.querySelector('time').dateTime) - new Date(a.querySelector('time').dateTime))
-    .forEach((entry) => blogTimeline.appendChild(entry));
-}
-
-blogFilters.forEach((button) => button.addEventListener('click', () => {
-  const filter = button.dataset.filter;
-  blogFilters.forEach((item) => item.classList.toggle('active', item === button));
-  blogEntries.forEach((entry) => {
-    const categories = entry.dataset.categories.split(' ');
-    entry.hidden = filter !== 'all' && !categories.includes(filter);
-  });
-}));
+});

@@ -3,133 +3,94 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="李英韬，大连理工大学人工智能专业本科生。研究方向包括三维视觉、3D Gaussian Splatting 与图像风格迁移。">
+  <meta name="description" content="李英韬的个人学术主页，研究方向包括三维视觉、3D Gaussian Splatting、图像风格迁移与事件视觉。">
   <meta name="author" content="Yingtao Li">
-  <meta name="theme-color" content="#f7f8fa">
-  <title>Yingtao Li | Research & Notes</title>
+  <meta name="theme-color" content="#eef1f5">
+  <title>李英韬 | Academic Homepage</title>
   <link rel="stylesheet" href="css/site.css">
   <script src="js/site.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
-  <header class="site-header">
-    <div class="nav-shell">
-      <a class="brand" href="#home" aria-label="Yingtao Li 首页">Yingtao Li <span>/ 李英韬</span></a>
-      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav"><span></span><span></span></button>
-      <nav id="site-nav" aria-label="主导航">
-        <a href="#about"><span class="zh">关于</span><span class="en">About</span></a>
-        <a href="#research"><span class="zh">研究</span><span class="en">Research</span></a>
-        <a href="#blog"><span class="zh">文章</span><span class="en">Blog</span></a>
-        <a href="#honors"><span class="zh">经历</span><span class="en">Experience</span></a>
-        <button class="language-button" type="button" aria-label="切换中英文">EN</button>
-      </nav>
+  <div class="container">
+    <div class="page-topbar">
+      <button id="language-toggle" class="language-button" type="button" aria-label="切换中英文">EN</button>
     </div>
-  </header>
 
-  <main id="main">
-    <section class="hero wrap" id="home">
-      <div class="hero-copy reveal">
-        <p class="kicker"><span class="zh">人工智能本科生 · 大连理工大学</span><span class="en">AI Undergraduate · Dalian University of Technology</span></p>
-        <h1><span class="zh">让机器看见，<br>也让研究被看见。</span><span class="en">Helping machines see,<br>and research be seen.</span></h1>
-        <p class="hero-intro zh">你好，我是李英韬。我关注三维视觉、3D Gaussian Splatting 与图像风格迁移，并持续记录研究过程中的想法与实践。</p>
-        <p class="hero-intro en">Hi, I am Yingtao Li. I work on 3D vision, 3D Gaussian Splatting and image style transfer, while documenting ideas and experiments along the way.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="#research"><span class="zh">查看研究</span><span class="en">View research</span></a>
-          <a class="button text-button" href="mailto:yingtaoli38@gmail.com"><span class="zh">给我写信</span><span class="en">Email me</span> <span aria-hidden="true">↗</span></a>
+    <header class="profile-header">
+      <div class="profile-info">
+        <h1><span class="zh">李英韬</span><span class="en">Yingtao Li</span> <span class="name-secondary"><span class="zh">Yingtao Li</span><span class="en">李英韬</span></span></h1>
+        <p class="role"><span class="zh">大连理工大学 · 人工智能本科生</span><span class="en">AI Undergraduate · Dalian University of Technology</span></p>
+        <p class="research-line"><span class="zh">研究方向：三维视觉、3D Gaussian Splatting、图像风格迁移、事件视觉</span><span class="en">Research: 3D vision, 3D Gaussian Splatting, image style transfer, event-based vision</span></p>
+        <div class="profile-links" aria-label="个人链接">
+          <a class="social-btn" href="https://github.com/Passwerob" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+          <a class="social-btn" href="https://scholar.google.com/citations?hl=zh-CN&user=u9zD2DIAAAAJ" target="_blank" rel="noreferrer">Google Scholar <span aria-hidden="true">↗</span></a>
+          <a class="social-btn" href="https://blog.csdn.net/2401_86810419" target="_blank" rel="noreferrer">CSDN <span aria-hidden="true">↗</span></a>
+          <a class="social-btn" href="mailto:yingtaoli38@gmail.com">Email <span aria-hidden="true">↗</span></a>
+          <a class="social-btn" href="notes/"><span class="zh">碎碎念</span><span class="en">Notes</span> <span aria-hidden="true">↗</span></a>
         </div>
       </div>
-      <figure class="portrait reveal">
-        <img src="images/photo.jpg" alt="李英韬在户外的照片" width="1707" height="1280">
-      </figure>
-    </section>
+      <img class="avatar" src="assets/photo.jpg" alt="李英韬的照片" width="1707" height="1280">
+    </header>
 
-    <section class="about section wrap" id="about">
-      <div class="section-label"><span class="zh">简介</span><span class="en">Profile</span></div>
-      <div class="about-grid reveal">
-        <h2><span class="zh">研究者，学习者，<br>偶尔也是记录者。</span><span class="en">Researcher, learner,<br>occasional writer.</span></h2>
-        <div class="prose">
+    <main id="main">
+      <section class="bio-section" aria-labelledby="bio-title">
+        <h2 id="bio-title"><span class="zh">简介</span><span class="en">About</span></h2>
+        <div class="bio-text-box">
           <p class="zh">我目前就读于大连理工大学人工智能专业，GPA 3.9/5.0，专业排名 11/312。研究兴趣集中在计算机视觉与三维场景表示。</p>
-          <p class="en">I study Artificial Intelligence at Dalian University of Technology, with a GPA of 3.9/5.0 and a rank of 11/312. My interests center on computer vision and 3D scene representation.</p>
-          <p class="zh">目前有两篇论文分别被 CVPR 2026 与 IEEE T-CSVT 接收。也在探索 RGB 与事件相机融合的三维重建。</p>
-          <p class="en">I have two papers accepted by CVPR 2026 and IEEE T-CSVT. I am also exploring RGB and event-camera fusion for 3D reconstruction.</p>
-          <div class="inline-links"><a href="https://github.com/Passwerob" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://blog.csdn.net/2401_86810419" target="_blank" rel="noreferrer">CSDN ↗</a></div>
+          <p class="en">I study Artificial Intelligence at Dalian University of Technology, with a GPA of 3.9/5.0 and a rank of 11/312. My interests are computer vision and 3D scene representation.</p>
+          <p class="zh">两篇论文分别被 CVPR 2026 与 IEEE T-CSVT 接收。目前正在探索 RGB 与事件相机融合的流式三维重建。</p>
+          <p class="en">Two papers have been accepted by CVPR 2026 and IEEE T-CSVT. I am currently exploring RGB and event-camera fusion for streaming 3D reconstruction.</p>
+          <p class="bio-email"><a href="mailto:yingtaoli38@gmail.com">yingtaoli38@gmail.com</a></p>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section wrap" id="research">
-      <div class="section-label"><span class="zh">研究与论文</span><span class="en">Research & Publications</span></div>
-      <div class="research-list">
-        <article class="research-item reveal">
-          <div class="research-meta"><span>CVPR 2026</span><span class="status">Accepted</span></div>
-          <div><h3>Style-GRPO</h3><p>Semantic-Aware Preference Optimization for Image Style Transfer Guided by Reward Modeling</p><div class="tags"><span>Style Transfer</span><span>Reward Modeling</span><span>GRPO</span></div><div class="paper-actions"><a href="https://www.falcary.com/assets/files/StyleGRPO.pdf" target="_blank" rel="noreferrer">Paper <span aria-hidden="true">↗</span></a></div></div>
-          <span class="item-index">01</span>
-        </article>
-        <article class="research-item reveal">
-          <div class="research-meta"><span>IEEE T-CSVT</span><span class="status">Accepted</span></div>
-          <div><h3>Coherent 3DGS from Degraded Views</h3><p>Breaking the Vicious Cycle: Coherent 3D Gaussian Splatting from Sparse and Motion-Blurred Views</p><div class="tags"><span>3DGS</span><span>Motion Blur</span><span>Sparse View</span></div><div class="paper-actions"><a href="https://arxiv.org/abs/2512.10369" target="_blank" rel="noreferrer">arXiv <span aria-hidden="true">↗</span></a></div></div>
-          <span class="item-index">02</span>
-        </article>
-        <article class="research-item reveal">
-          <div class="research-meta"><span><span class="zh">进行中</span><span class="en">Ongoing</span></span><span class="status">Research</span></div>
-          <div><h3>StreamVGGT / EventVGGT</h3><p><span class="zh">融合 RGB 与事件相机数据，探索更鲁棒的流式三维重建。</span><span class="en">Fusing RGB and event-camera data for more robust streaming 3D reconstruction.</span></p><div class="tags"><span>Event Camera</span><span>Cross-Attention</span><span>3D Reconstruction</span></div></div>
-          <span class="item-index">03</span>
-        </article>
-      </div>
-    </section>
-
-    <section class="section blog-section" id="blog">
-      <div class="wrap">
-        <div class="blog-heading">
-          <div><div class="section-label">Blog</div><h2><span class="zh">写点值得留下的。</span><span class="en">Writing what is worth keeping.</span></h2></div>
-          <p><span class="zh">这里是独立的个人 Blog，不与既有学习笔记混用。文章将由我陆续更新。</span><span class="en">This is an independent personal blog, separate from my existing study notes. Posts will be published here over time.</span></p>
-        </div>
-        <div class="blog-filters" aria-label="Blog 分类筛选">
-          <button class="blog-filter active" type="button" data-filter="all"><span class="zh">全部</span><span class="en">All</span></button>
-          <button class="blog-filter" type="button" data-filter="essay"><span class="zh">随笔</span><span class="en">Essay</span></button>
-          <button class="blog-filter" type="button" data-filter="research"><span class="zh">科研感想</span><span class="en">Research Reflections</span></button>
-        </div>
-        <div class="blog-timeline reveal">
-          <article class="blog-entry" data-categories="essay research">
-            <time datetime="2026-06-20"><span>06.20</span><small>2026</small></time>
-            <a class="blog-entry-content" href="blog/2026-06-20/index.html">
-              <div class="blog-tags"><span><span class="zh">随笔</span><span class="en">Essay</span></span><span><span class="zh">科研感想</span><span class="en">Research Reflections</span></span></div>
-              <h3><span class="zh">在期末周的混乱里，重新建立秩序</span><span class="en">Rebuilding order amid finals-week chaos</span></h3>
-              <p><span class="zh">关于课程、科研、时间管理，以及如何在不完美的条件下继续向前。</span><span class="en">On coursework, research, time management, and moving forward under imperfect conditions.</span></p>
-              <span class="blog-arrow" aria-hidden="true">↗</span>
-            </a>
+      <section aria-labelledby="research-title">
+        <h2 id="research-title"><span class="zh">研究成果</span><span class="en">Research</span></h2>
+        <p class="section-note zh">论文链接会随着公开状态更新。</p>
+        <p class="section-note en">Links are updated as each paper becomes public.</p>
+        <div class="paper-list">
+          <article class="paper-card">
+            <div class="paper-content">
+              <h3>Style-GRPO</h3>
+              <p class="paper-title">Semantic-Aware Preference Optimization for Image Style Transfer Guided by Reward Modeling</p>
+              <p class="paper-desc zh">面向图像风格迁移的语义感知偏好优化方法。</p>
+              <p class="paper-desc en">Semantic-aware preference optimisation for image style transfer.</p>
+              <div class="tag-row"><span class="badge badge-venue">CVPR 2026</span><a class="badge badge-link" href="https://www.falcary.com/assets/files/StyleGRPO.pdf" target="_blank" rel="noreferrer">Paper <span aria-hidden="true">↗</span></a></div>
+            </div>
           </article>
-          <article class="blog-entry" data-categories="essay">
-            <time datetime="2026-06-18"><span>06.18</span><small>2026</small></time>
-            <a class="blog-entry-content" href="blog/2026-06-18/index.html">
-              <div class="blog-tags"><span><span class="zh">随笔</span><span class="en">Essay</span></span></div>
-              <h3><span class="zh">蓝莲花之后</span><span class="en">After Blue Lotus</span></h3>
-              <p><span class="zh">从 2023 年的遗憾到 2024 年的重新出发，写给那个曾经从低处爬起来的自己。</span><span class="en">From the regrets of 2023 to starting over in 2024, a note to the self who once climbed back up.</span></p>
-              <span class="blog-arrow" aria-hidden="true">↗</span>
-            </a>
+          <article class="paper-card">
+            <div class="paper-content">
+              <h3>Coherent 3DGS from Degraded Views</h3>
+              <p class="paper-title">Breaking the Vicious Cycle: Coherent 3D Gaussian Splatting from Sparse and Motion-Blurred Views</p>
+              <p class="paper-desc zh">面向稀疏视角和运动模糊输入的三维高斯泼溅重建。</p>
+              <p class="paper-desc en">Coherent 3D Gaussian Splatting from sparse and motion-blurred views.</p>
+              <div class="tag-row"><span class="badge badge-venue">IEEE T-CSVT</span><a class="badge badge-link" href="https://arxiv.org/abs/2512.10369" target="_blank" rel="noreferrer">arXiv <span aria-hidden="true">↗</span></a><a class="badge badge-link" href="https://potatobigroom.github.io/CoherentGS/" target="_blank" rel="noreferrer">Webpage <span aria-hidden="true">↗</span></a><a class="badge badge-link" href="https://github.com/PotatoBigRoom/CoherentGS" target="_blank" rel="noreferrer">Code <span aria-hidden="true">↗</span></a></div>
+            </div>
           </article>
         </div>
-      </div>
-    </section>
+        <p class="availability-note"><span class="zh">部分研究项目暂未开源，受相关政策和所在单位限制。如需了解更多，欢迎<a href="mailto:yingtaoli38@gmail.com">通过邮件联系</a>。</span><span class="en">Some research projects are not open-sourced due to applicable policies and institutional constraints. Please <a href="mailto:yingtaoli38@gmail.com">email me</a> if you would like to learn more.</span></p>
+      </section>
 
-    <section class="section wrap" id="honors">
-      <div class="section-label"><span class="zh">教育与荣誉</span><span class="en">Education & Honors</span></div>
-      <div class="timeline reveal">
-        <div class="timeline-row"><time>2024 <span class="zh">至今</span><span class="en">Present</span></time><div><h3><span class="zh">大连理工大学</span><span class="en">Dalian University of Technology</span></h3><p><span class="zh">人工智能专业，工学学士在读</span><span class="en">B.Eng. candidate in Artificial Intelligence</span></p></div></div>
-        <div class="timeline-row"><time>2025</time><div><h3><span class="zh">国家奖学金</span><span class="en">National Scholarship</span></h3><p>GPA 3.9/5.0 · Rank 11/312</p></div></div>
-        <div class="timeline-row"><time>2026</time><div><h3>CVPR 2026 · IEEE T-CSVT</h3><p><span class="zh">两篇论文被接收</span><span class="en">Two papers accepted</span></p></div></div>
-      </div>
-    </section>
-  </main>
+      <section aria-labelledby="experience-title">
+        <h2 id="experience-title"><span class="zh">经历时间线</span><span class="en">Timeline</span></h2>
+        <div class="timeline">
+          <div class="timeline-row"><time datetime="2024">2024 - <span class="zh">至今</span><span class="en">Present</span></time><div><h3><span class="zh">大连理工大学</span><span class="en">Dalian University of Technology</span></h3><p><span class="zh">人工智能专业，工学学士在读</span><span class="en">B.Eng. candidate in Artificial Intelligence</span></p></div></div>
+          <div class="timeline-row"><time datetime="2025">2025</time><div><h3><span class="zh">国家奖学金</span><span class="en">National Scholarship</span></h3><p>GPA 3.9/5.0 · Rank 11/312</p></div></div>
+          <div class="timeline-row"><time datetime="2026">2026</time><div><h3>CVPR 2026 · IEEE T-CSVT</h3><p><span class="zh">两篇论文被接收</span><span class="en">Two papers accepted</span></p></div></div>
+        </div>
+      </section>
 
-  <footer class="site-footer">
-    <div class="wrap footer-grid">
-      <div class="footer-contact-block">
-        <p class="footer-title"><span class="zh">一起讨论一个好问题。</span><span class="en">Let’s discuss a good problem.</span></p>
-        <a class="footer-contact" href="mailto:yingtaoli38@gmail.com" aria-label="发送邮件至 yingtaoli38@gmail.com"><span><span class="zh">发送邮件</span><span class="en">Start a conversation</span></span><span class="footer-contact-arrow" aria-hidden="true">↗</span></a>
-      </div>
-      <div class="footer-meta"><p>Yingtao Li · 李英韬</p><p>© <span id="year">2026</span></p></div>
-    </div>
-  </footer>
+      <section aria-labelledby="opportunities-title" class="opportunities-section">
+        <h2 id="opportunities-title"><span class="zh">申请方向</span><span class="en">Opportunities</span></h2>
+        <div class="opportunities-box"><p class="zh">关注研究实习、硕士推免与三维视觉相关的长期合作机会。</p><p class="en">Open to research internships, graduate opportunities, and long-term collaborations in 3D vision.</p><a href="mailto:yingtaoli38@gmail.com">yingtaoli38@gmail.com <span aria-hidden="true">↗</span></a></div>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <span>© <span id="year">2026</span> Yingtao Li</span>
+      <a href="notes/"><span class="zh">碎碎念</span><span class="en">Notes</span> <span aria-hidden="true">↗</span></a>
+    </footer>
+  </div>
 </body>
 </html>
