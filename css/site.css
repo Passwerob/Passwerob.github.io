@@ -16,6 +16,7 @@
   --wrap: 1020px;
   --serif: Georgia, "Songti SC", "Noto Serif CJK SC", "STSong", serif;
   --sans: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --art: "STKaiti", "KaiTi", "KaiTi_GB2312", "FangSong", "Noto Serif SC", Georgia, serif;
 }
 
 *,
@@ -464,8 +465,9 @@ main section > h2 {
 .notes-header h1 {
   margin: 0 0 7px;
   color: var(--primary-hover);
+  font-family: var(--art);
   font-size: 37px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.22;
 }
 
@@ -577,8 +579,9 @@ main section > h2 {
 .note-content h2 {
   margin: 8px 0 8px;
   color: #293745;
+  font-family: var(--art);
   font-size: 27px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.3;
 }
 
@@ -704,7 +707,7 @@ main section > h2 {
 }
 
 :root {
-  --hand: "Ma Shan Zheng", "STXingkai", "KaiTi", "Noto Serif SC", Georgia, serif;
+  --hand: "Ma Shan Zheng", "STXingkai", "KaiTi", cursive;
 }
 
 body.article-page {
@@ -831,8 +834,9 @@ body.article-page {
 .article-header h1 {
   margin: 18px 0 22px;
   color: var(--primary-hover);
+  font-family: var(--art);
   font-size: clamp(36px, 6vw, 56px);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.22;
   letter-spacing: -0.015em;
 }
