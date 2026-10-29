@@ -682,3 +682,9 @@ main section > h2 {
     transition: none;
   }
 }
+
+.timeline-row .advisor {
+  margin-top: 0.25rem;
+  color: #5b6570;
+  font-size: 0.92rem;
+}
