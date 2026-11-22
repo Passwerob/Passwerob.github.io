@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>EvGaze: Motion on Demand</title>
+  <meta name="description" content="EvGaze regulates a rotating wedge prism so an event camera sees static structure without spending events the scene already provides.">
+  <meta name="theme-color" content="#fafaf7">
+  <meta name="citation_title" content="Motion on Demand: Adaptive Optical Excitation for Event Cameras">
+  <meta name="citation_author" content="Li, Yingtao">
+  <meta name="citation_author" content="Feng, Chaoran">
+  <meta name="citation_author" content="Jiang, Haoran">
+  <meta name="citation_author" content="Tang, Zhenyu">
+  <meta name="citation_author" content="Yu, Wangbo">
+  <meta name="citation_author" content="Xu, Zhankuo">
+  <meta name="citation_author" content="Zhao, Jianbin">
+  <meta name="citation_author" content="Yuan, Li">
+  <meta name="citation_author" content="Tian, Yonghong">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_pdf_url" content="paper.pdf">
+  <link rel="stylesheet" href="styles.css?v=50">
+  <script>document.documentElement.classList.add("motion")</script>
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <div class="readbar" aria-hidden="true"></div>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="EvGaze, back to top"><span class="brand-ev">Ev</span>Gaze</a>
+      <nav class="nav-links" aria-label="Page">
+        <a href="#video">Video</a>
+        <a href="#abstract">Abstract</a>
+        <a href="#method">Method</a>
+        <a href="#scenes">Compare</a>
+        <a href="#results">Results</a>
+      </nav>
+      <a class="nav-paper" href="paper.pdf">Paper</a>
+    </div>
+  </header>
+
+  <main id="content">
+    <!-- ============ TITLE ============ -->
+    <section class="hero" id="top">
+      <div class="wrap hero-inner">
+        <p class="venue"><span class="venue-name"><i>Ev</i>Gaze</span></p>
+        <h1>Motion on Demand</h1>
+        <p class="subtitle">Adaptive Optical Excitation for Event Cameras</p>
+
+        <p class="authors">
+          <span>Yingtao Li<sup>1,2*</sup></span>
+          <span>Chaoran Feng<sup>1*</sup></span>
+          <span>Haoran Jiang<sup>1,2*</sup></span>
+          <span>Zhenyu Tang<sup>1</sup></span>
+          <span>Wangbo Yu<sup>1</sup></span>
+          <span>Zhankuo Xu<sup>3</sup></span>
+          <span>Jianbin Zhao<sup>1</sup></span>
+          <span>Li Yuan<sup>1&dagger;</sup></span>
+          <span>Yonghong Tian<sup>1&dagger;</sup></span>
+        </p>
+        <ul class="affils">
+          <li><sup>1</sup>Shenzhen Graduate School, Peking University</li>
+          <li><sup>2</sup>School of Future Technology, Dalian University of Technology</li>
+          <li><sup>3</sup>School of Artificial Intelligence, Shanghai Jiao Tong University</li>
+        </ul>
+        <p class="contrib"><sup>*</sup>Equal contribution &ensp; <sup>&dagger;</sup>Corresponding authors</p>
+
+        <div class="links">
+          <a class="btn btn-solid" href="paper.pdf">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>
+            Paper
+          </a>
+          <span class="btn is-soon" aria-disabled="true" title="Code will be released">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>
+            Code<small>soon</small>
+          </span>
+          <a class="btn" href="#video">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5v14l12-7z"/></svg>
+            Video
+          </a>
+        </div>
+      </div>
+
+      <!-- ============ VIDEO ============ -->
+      <div class="wrap video-wrap" id="video">
+        <h2 class="visually-hidden">Overview video</h2>
+        <div class="video-slot" id="video-slot" data-src="assets/video/evgaze.mp4?v=4" data-poster="assets/video/poster.jpg?v=4">
+          <div class="video-ph"><p class="ph-title">Overview video</p></div>
+        </div>
+        <p class="tldr"><b>EvGaze</b> spins a wedge prism in front of an event camera only as fast as the scene needs: it reveals the edges that natural motion leaves invisible, and stops paying for events once the scene moves by itself.</p>
+      </div>
+    </section>
+
+    <!-- ============ KEY NUMBERS ============ -->
+    <section class="stats" aria-label="Key results">
+      <div class="wrap stat-grid">
+        <div class="stat reveal">
+          <p class="stat-num">&minus;39<span>%</span></p>
+          <p class="stat-label">events vs. full-speed rotation on EvMotion, while recovering more edges</p>
+        </div>
+        <div class="stat reveal">
+          <p class="stat-num">0.55<span class="arrow">&rarr;</span>0.73</p>
+          <p class="stat-label">feature-tracking success S@1 on DSEC, native events vs. EvGaze</p>
+        </div>
+        <div class="stat reveal">
+          <p class="stat-num">&minus;17<span>%</span></p>
+          <p class="stat-label">average event rate on the physical prototype vs. full-speed rotation</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TEASER ============ -->
+    <section class="sec sec-tight reveal" aria-labelledby="teaser-title">
+      <div class="wrap">
+        <h2 id="teaser-title" class="visually-hidden">Teaser</h2>
+        <figure class="plate">
+          <button class="zoom" type="button" data-zoom="assets/teaser.png?v=4" data-alt="Teaser. A street scene with a poster and the prism prototype on the left. On the right, raw events and EvGaze events across static, normal, and fast motion.">
+            <img src="assets/teaser.png?v=4" width="2034" height="908" alt="Teaser figure. Raw events stay sparse when the scene is still and smear when motion is fast. EvGaze keeps the EvGaze poster readable after compensation." fetchpriority="high">
+            <span class="zoom-label"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5M11 8v6M8 11h6"/></svg>Enlarge</span>
+          </button>
+          <figcaption><b>Figure 1. Motion-adaptive event sensing.</b> A raw event camera sees little when static and misses edges parallel to its panning; only fast motion reveals the full scene. EvGaze adds prism motion only where natural motion falls short, and recovers complete structure in all three cases.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ ABSTRACT ============ -->
+    <section class="sec reveal" id="abstract">
+      <div class="wrap narrow">
+        <h2 class="sec-title center">Abstract</h2>
+        <div class="abstract">
+          <p>Event cameras respond only to brightness changes, so whether an edge is visible depends on image motion perpendicular to it&mdash;a motion that constantly shifts with camera and scene dynamics. Rotating a wedge prism in front of the lens introduces controlled image motion to reveal static or slow edges. However, a fixed rotation speed cannot adapt to changing motion conditions: when natural motion is already sufficient, additional optical excitation generates redundant events and introduces unnecessary alignment errors.</p>
+          <p>Inspired by the division of labor between fast haltere feedforward and slower visual feedback in fly gaze control, we present <b>EvGaze</b>, an event camera system that adaptively regulates prism rotation speed. EvGaze employs a learned multimodal controller that integrates luminance, event, and inertial observations, with a fast inertial pathway that refines speed decisions between visual updates. To preserve geometric consistency during speed changes, we compensate for prism-induced image motion at individual event timestamps using measured encoder angles.</p>
+          <p>On EvMotion, EvGaze recovers more edges than full-speed prism rotation with 39% fewer events. On DSEC with simulated optical modulation, it reaches 0.73 feature-tracking success (compared with 0.55 on native events and 0.67 at 180 RPM) while generating 26% fewer events than 360 RPM. Real-device experiments further demonstrate online closed-loop adaptation, reducing average event rates by 17% relative to full-speed rotation.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ METHOD ============ -->
+    <section class="sec method reveal" id="method">
+      <div class="wrap">
+        <header class="sec-head">
+          <h2 class="sec-title">Spin the prism only as fast as the scene needs</h2>
+          <p class="sec-lead">Prism speed is the control variable. A slow visual pathway sets a baseline from recent frames, a fast inertial pathway corrects it before the next frame arrives, and every event is aligned with the prism angle at its own timestamp.</p>
+        </header>
+
+        <div class="sketch">
+          <div class="scope-box"><canvas id="scope" aria-hidden="true"></canvas></div>
+          <div class="sketch-copy">
+            <p class="sketch-kicker">Live sketch</p>
+            <p class="sketch-text">A still scene gets full excitation and every edge fires. As the scene starts to pan by itself, the controller steps the prism down, then stops it.</p>
+            <dl class="readout" aria-live="off">
+              <div><dt>Scene motion</dt><dd data-hud="scene">Still</dd></div>
+              <div><dt>Prism speed</dt><dd><b data-hud="rpm">360</b> rpm</dd></div>
+              <div><dt>Command</dt><dd><span class="steps" aria-hidden="true"><span data-step="0">0</span><span data-step="180">180</span><span data-step="360">360</span></span></dd></div>
+              <div><dt>Polarity</dt><dd class="legend"><i class="sw sw-on"></i>ON <i class="sw sw-off"></i>OFF</dd></div>
+            </dl>
+            <p class="sketch-note">Toy illustration of the control idea, not a result.</p>
+          </div>
+        </div>
+
+        <ol class="parts">
+          <li class="part">
+            <div class="part-fig"><img src="assets/optics.png?v=2" width="1446" height="544" alt="A wedge prism deflects a scene point by a small angle; rotating it moves the image point on a circle." loading="lazy"></div>
+            <h3><span class="part-n">(a)</span> Optical excitation</h3>
+            <p>A wedge prism deflects every ray by &delta; &asymp; (<i>n</i>&minus;1)&alpha;. Rotating it sweeps each image point around a circle, so edges of every orientation get perpendicular motion and fire events.</p>
+          </li>
+          <li class="part">
+            <div class="part-fig rates" aria-hidden="true">
+              <div class="rate-row"><span class="rate-tag fast">Fast path</span><span class="rate-ticks fast"></span><span class="rate-hz">IMU rate</span></div>
+              <div class="rate-row"><span class="rate-tag slow">Slow path</span><span class="rate-ticks slow"></span><span class="rate-hz">60 Hz</span></div>
+              <div class="rate-out"><i>s</i><sub>cmd</sub> &isin; {0, 180, 360} rpm</div>
+            </div>
+            <h3><span class="part-n">(b)</span> Dual-rate control</h3>
+            <p>A learned slow pathway fuses luminance, event and inertial history at frame rate. A fast inertial pathway refines the cached decision at every IMU sample. A command filter keeps to adjacent gears and a minimum dwell.</p>
+          </li>
+          <li class="part">
+            <div class="part-fig formula" aria-hidden="true">
+              <p class="eq"><b>x</b><sub><i>k</i></sub><sup>ref</sup> = <i>W</i><sub>opt</sub><sup>&minus;1</sup>(<b>x</b><sub><i>k</i></sub>; <i>&theta;</i>(<i>t<sub>k</sub></i>))</p>
+              <div class="warp"><span class="cloud"></span><span class="warp-arrow">&rarr;</span><span class="line"></span></div>
+            </div>
+            <h3><span class="part-n">(c)</span> Per-event compensation</h3>
+            <p>Each event is inverse-warped with the encoder angle measured at its own timestamp. The prism circle disappears, natural scene motion stays, and alignment holds while the speed changes.</p>
+          </li>
+        </ol>
+
+        <figure class="plate">
+          <button class="zoom" type="button" data-zoom="assets/overview.png?v=2" data-alt="System diagram: event camera, IMU and RGB feed a dual-rate controller that commands the prism; per-event compensation removes prism motion.">
+            <img src="assets/overview.png?v=2" width="1703" height="1007" alt="Overview of EvGaze: system loop, dual-rate controller, optics and per-event compensation." loading="lazy">
+            <span class="zoom-label"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5M11 8v6M8 11h6"/></svg>Enlarge</span>
+          </button>
+          <figcaption><b>Figure 2. Overview of EvGaze.</b> (a) System overview integrating event, inertial and external RGB streams. (b) Dual-rate controller with a multimodal slow pathway and an inertial fast pathway. (c) Prism-based optical excitation and per-event encoder-angle compensation.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ INTERACTIVE COMPARE ============ -->
+    <section class="sec scenes dark reveal" id="scenes">
+      <div class="wrap">
+        <header class="sec-head">
+          <h2 class="sec-title">Drag to compare</h2>
+          <p class="sec-lead">EvGaze is always on the right. Pick a scene, then the baseline shown on the left.</p>
+        </header>
+
+        <div class="scene-tabs" role="tablist" aria-label="Scene">
+          <button type="button" role="tab" id="tab-dsec" aria-controls="compare" aria-selected="true" data-scene="dsec">
+            <img src="assets/compare/dsec-rgb.png" alt="" width="1280" height="924" loading="lazy"><span><b>DSEC</b>Driving, real motion</span>
+          </button>
+          <button type="button" role="tab" id="tab-dl" aria-controls="compare" aria-selected="false" data-scene="dl" tabindex="-1">
+            <img src="assets/compare/temple-rgb.png" alt="" width="614" height="332" loading="lazy"><span><b>DL3DV</b>Temple courtyard</span>
+          </button>
+          <button type="button" role="tab" id="tab-sim" aria-controls="compare" aria-selected="false" data-scene="sim" tabindex="-1">
+            <img src="assets/compare/sim-rgb.png" alt="" width="960" height="540" loading="lazy"><span><b>EvMotion</b>Simulation</span>
+          </button>
+          <button type="button" role="tab" id="tab-real" aria-controls="compare" aria-selected="false" data-scene="real" tabindex="-1">
+            <img src="assets/compare/real-rgb.png" alt="" width="464" height="261" loading="lazy"><span><b>Prototype</b>Real target</span>
+          </button>
+        </div>
+
+        <div class="compare-bar">
+          <span class="compare-k">Left side</span>
+          <div class="seg" role="radiogroup" aria-label="Left side">
+            <button type="button" role="radio" data-source="0" aria-checked="false">RGB</button>
+            <button type="button" role="radio" data-source="1" aria-checked="true">DVS-Voltmeter</button>
+            <button type="button" role="radio" data-source="2" aria-checked="false">v2e</button>
+          </div>
+        </div>
+
+        <div class="stage" id="compare" role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-label="Scan between the left source and EvGaze" aria-describedby="compare-help" style="--pos: 50; --ar: 1.3853; aspect-ratio: 1280 / 924;">
+          <img class="layer layer-left" src="assets/compare/dsec-volt.png" width="1280" height="924" alt="">
+          <img class="layer layer-ours" src="assets/compare/dsec-ours.png" width="1280" height="924" alt="">
+          <span class="tag tag-l" data-left-name>DVS-Voltmeter</span>
+          <span class="tag tag-r">EvGaze</span>
+          <div class="handle" aria-hidden="true"><span class="shaft"></span><span class="knob"><svg viewBox="0 0 24 24"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg></span></div>
+        </div>
+        <div class="compare-foot">
+          <p class="caption" data-scene-note>DSEC street. Passive simulators fire where the car is already moving. EvGaze also draws the houses and the far curb.</p>
+          <p class="help" id="compare-help">Drag, or use the arrow keys.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RESULTS ============ -->
+    <section class="sec results reveal" id="results">
+      <div class="wrap">
+        <header class="sec-head">
+          <h2 class="sec-title">More edges, fewer events</h2>
+          <p class="sec-lead">Edge F1 and target event observability (TEO) measure what the camera recovers. Event rate, in million events per second, is what it costs.</p>
+        </header>
+
+        <div class="table-card">
+          <div class="table-tabs" role="tablist" aria-label="Result tables">
+            <button type="button" role="tab" id="tt-1" aria-controls="tp-1" aria-selected="true">EvMotion</button>
+            <button type="button" role="tab" id="tt-2" aria-controls="tp-2" aria-selected="false" tabindex="-1">DSEC tracking</button>
+            <button type="button" role="tab" id="tt-3" aria-controls="tp-3" aria-selected="false" tabindex="-1">Physical prototype</button>
+          </div>
+
+          <div class="table-panel" role="tabpanel" id="tp-1" aria-labelledby="tt-1">
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr><th scope="col">Method</th><th scope="col">Edge F1 <i>&uarr;</i></th><th scope="col">TEO <i>&uarr;</i></th><th scope="col">Mev/s <i>&darr;</i></th></tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">DVS-Voltmeter</th><td>0.275</td><td>0.281</td><td>7.2</td></tr>
+                  <tr><th scope="row">v2e</th><td>0.311</td><td>0.293</td><td>32.0</td></tr>
+                  <tr><th scope="row">Fixed-0</th><td>0.346</td><td>0.368</td><td>35.6</td></tr>
+                  <tr><th scope="row">Fixed-180</th><td class="second">0.548</td><td class="second">0.465</td><td>62.0</td></tr>
+                  <tr><th scope="row">Fixed-360</th><td>0.529</td><td>0.441</td><td>98.1</td></tr>
+                  <tr class="ours"><th scope="row">EvGaze (ours)</th><td class="best">0.553</td><td class="best">0.466</td><td>59.7</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="table-note">Table 1. Average over four motion regimes. EvGaze has the best average on both quality columns.</p>
+          </div>
+
+          <div class="table-panel" role="tabpanel" id="tp-2" aria-labelledby="tt-2" hidden>
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr><th scope="col">Source</th><th scope="col">Mev/s <i>&darr;</i></th><th scope="col">Far-field <i>&uarr;</i></th><th scope="col">S@1 <i>&uarr;</i></th><th scope="col">S@3 <i>&uarr;</i></th><th scope="col">Median px <i>&darr;</i></th></tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">Real event camera</th><td>12.7</td><td>0.621</td><td>0.554</td><td>0.929</td><td>1.16</td></tr>
+                  <tr><th scope="row">Fixed-180</th><td>12.0</td><td>0.944</td><td>0.665</td><td>0.951</td><td>1.18</td></tr>
+                  <tr><th scope="row">Fixed-360</th><td>20.8</td><td class="best">0.979</td><td class="best">0.774</td><td class="best">0.987</td><td class="best">0.71</td></tr>
+                  <tr class="ours"><th scope="row">EvGaze (ours)</th><td>15.4</td><td class="second">0.970</td><td class="second">0.733</td><td class="second">0.969</td><td class="second">1.00</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="table-note">Table 3 (DSEC). Leave-one-sequence-out fine-tuning. S@1 / S@3: fraction of tracks within 1 / 3 pixels. EvGaze comes close to Fixed-360 with 26% fewer events.</p>
+          </div>
+
+          <div class="table-panel" role="tabpanel" id="tp-3" aria-labelledby="tt-3" hidden>
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr><th scope="col">Source</th><th scope="col">Static</th><th scope="col">On car</th><th scope="col">On ground</th><th scope="col">S@1 <i>&uarr;</i></th><th scope="col">Median px <i>&darr;</i></th></tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">Fixed-0 (prism off)</th><td>0.133 <span class="rate">/ 0.01</span></td><td>0.583 <span class="rate">/ 0.14</span></td><td>0.567 <span class="rate">/ 0.11</span></td><td>0.266</td><td>4.69</td></tr>
+                  <tr><th scope="row">Fixed-180</th><td>0.924 <span class="rate">/ 0.81</span></td><td>0.907 <span class="rate">/ 0.96</span></td><td class="best">0.917 <span class="rate">/ 0.84</span></td><td>0.759</td><td class="second">0.81</td></tr>
+                  <tr><th scope="row">Fixed-360</th><td class="second">0.941 <span class="rate">/ 1.74</span></td><td class="second">0.923 <span class="rate">/ 1.71</span></td><td class="second">0.902 <span class="rate">/ 1.64</span></td><td class="best">0.867</td><td class="best">0.60</td></tr>
+                  <tr class="ours"><th scope="row">EvGaze, fine-tuned (ours)</th><td class="best">0.954 <span class="rate">/ 1.37</span></td><td class="best">0.938 <span class="rate">/ 1.31</span></td><td class="best">0.917 <span class="rate">/ 1.53</span></td><td class="second">0.834</td><td class="best">0.60</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="table-note">Table 5. Cells read Edge F1 / event rate (Mev/s) under three rig conditions. Tracking is measured on the static scene.</p>
+          </div>
+          <p class="table-legend"><b>Bold</b> best &ensp; <u>Underline</u> second best &ensp; &uarr; higher is better, &darr; lower is better</p>
+        </div>
+
+        <figure class="plate">
+          <button class="zoom" type="button" data-zoom="assets/dsec-panel.png" data-alt="DSEC far-field comparison across RGB, the real event camera, two simulators, fixed prism speeds, and EvGaze.">
+            <img src="assets/dsec-panel.png" width="2051" height="478" alt="On DSEC, fixed prism speeds and EvGaze cover far-field edges that the real camera and passive simulators miss." loading="lazy">
+            <span class="zoom-label"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5M11 8v6M8 11h6"/></svg>Enlarge</span>
+          </button>
+          <figcaption><b>Figure 5. Event-based perception on DSEC.</b> Representative 16.7 ms event windows (top) and far-field edge coverage (bottom; blue covered, red missed). On this low-motion interval EvGaze selects 180 RPM and reaches 0.99 coverage at 17.5 Mev/s, the rate of Fixed-180 and below Fixed-360.</figcaption>
+        </figure>
+
+        <figure class="plate">
+          <button class="zoom" type="button" data-zoom="assets/qualitative.png?v=5" data-alt="Qualitative events on DSEC, DL3DV, Blender simulation, and a real target.">
+            <img src="assets/qualitative.png?v=5" width="2034" height="824" alt="RGB, baselines, fixed-speed scanning and EvGaze on DSEC, DL3DV, simulation and a real target." loading="lazy">
+            <span class="zoom-label"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5M11 8v6M8 11h6"/></svg>Enlarge</span>
+          </button>
+          <figcaption><b>Figure 4. Qualitative results across DSEC, DL3DV, simulation and real hardware.</b> The left four columns compare EvGaze with passive event simulators. On the right, Fixed-180 leaves sparse edges under slow motion, whereas Fixed-360 introduces residual blur around the physical target; EvGaze recovers the missing edges without sacrificing sharpness. Red and blue denote event polarities.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ CITATION (hidden until the arXiv ID is available) ============
+    
+    <section class="sec cite reveal" id="cite">
+      <div class="wrap narrow">
+        <h2 class="sec-title">BibTeX</h2>
+        <div class="bib">
+          <button class="bib-copy" type="button" id="copy-bib">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg>
+            <span>Copy</span>
+          </button>
+          <pre id="bibtex" tabindex="0">@misc{li2026motion,
+  title         = {Motion on Demand: Adaptive Optical Excitation
+                   for Event Cameras},
+  author        = {Li, Yingtao and Feng, Chaoran and Jiang, Haoran
+                   and Tang, Zhenyu and Yu, Wangbo and Xu, Zhankuo
+                   and Zhao, Jianbin and Yuan, Li and Tian, Yonghong},
+  year          = {2026},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV}
+}</pre>
+          <p class="copy-state" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+    ============ END CITATION ============ -->
+  </main>
+
+  <footer class="colophon">
+    <div class="wrap colophon-inner">
+      <p><b><i>Ev</i>Gaze</b> &middot; Motion on Demand: Adaptive Optical Excitation for Event Cameras, 2026</p>
+    </div>
+  </footer>
+
+  <dialog id="zoom-dialog" aria-label="Enlarged figure">
+    <button class="close-zoom" type="button" aria-label="Close">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <img alt="" id="zoom-img">
+  </dialog>
+  <script src="main.js?v=52"></script>
+</body>
+</html>
