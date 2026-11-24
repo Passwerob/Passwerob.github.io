@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex">
   <title>EvGaze: Motion on Demand</title>
   <meta name="description" content="EvGaze regulates a rotating wedge prism so an event camera sees static structure without spending events the scene already provides.">
   <meta name="theme-color" content="#fafaf7">
@@ -18,8 +17,9 @@
   <meta name="citation_author" content="Yuan, Li">
   <meta name="citation_author" content="Tian, Yonghong">
   <meta name="citation_publication_date" content="2026">
-  <meta name="citation_pdf_url" content="paper.pdf">
-  <link rel="stylesheet" href="styles.css?v=50">
+  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2611.30641">
+  <meta name="citation_arxiv_id" content="2611.30641">
+  <link rel="stylesheet" href="styles.css?v=51">
   <script>document.documentElement.classList.add("motion")</script>
 </head>
 <body>
@@ -35,8 +35,9 @@
         <a href="#method">Method</a>
         <a href="#scenes">Compare</a>
         <a href="#results">Results</a>
+        <a href="#cite">Cite</a>
       </nav>
-      <a class="nav-paper" href="paper.pdf">Paper</a>
+      <a class="nav-paper" href="https://arxiv.org/abs/2611.30641">arXiv</a>
     </div>
   </header>
 
@@ -67,9 +68,13 @@
         <p class="contrib"><sup>*</sup>Equal contribution &ensp; <sup>&dagger;</sup>Corresponding authors</p>
 
         <div class="links">
-          <a class="btn btn-solid" href="paper.pdf">
+          <a class="btn btn-solid" href="https://arxiv.org/pdf/2611.30641">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>
             Paper
+          </a>
+          <a class="btn" href="https://arxiv.org/abs/2611.30641">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 12 5l7 14M8.2 13h7.6"/></svg>
+            arXiv
           </a>
           <span class="btn is-soon" aria-disabled="true" title="Code will be released">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>
@@ -328,8 +333,7 @@
       </div>
     </section>
 
-    <!-- ============ CITATION (hidden until the arXiv ID is available) ============
-    
+    <!-- ============ CITATION ============ -->
     <section class="sec cite reveal" id="cite">
       <div class="wrap narrow">
         <h2 class="sec-title">BibTeX</h2>
@@ -345,14 +349,16 @@
                    and Tang, Zhenyu and Yu, Wangbo and Xu, Zhankuo
                    and Zhao, Jianbin and Yuan, Li and Tian, Yonghong},
   year          = {2026},
+  eprint        = {2611.30641},
   archivePrefix = {arXiv},
-  primaryClass  = {cs.CV}
+  primaryClass  = {cs.CV},
+  url           = {https://arxiv.org/abs/2611.30641}
 }</pre>
           <p class="copy-state" role="status" aria-live="polite"></p>
         </div>
       </div>
     </section>
-    ============ END CITATION ============ -->
+
   </main>
 
   <footer class="colophon">
@@ -367,6 +373,6 @@
     </button>
     <img alt="" id="zoom-img">
   </dialog>
-  <script src="main.js?v=52"></script>
+  <script src="main.js?v=53"></script>
 </body>
 </html>
